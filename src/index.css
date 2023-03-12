@@ -27,7 +27,7 @@ body{
       @apply  text-textWhite font-medium text-2xl leading-[1.1] tracking-wide  md:text-3xl lg:text-4xl  ;
     }
     h4{
-      @apply  text-textWhite font-medium text-xl leading-[1.1] tracking-wide  md:text-2xl lg:text-3xl  ;
+      @apply  text-textWhite font-medium text-lg leading-[1.1] tracking-wide  md:text-2xl lg:text-3xl  ;
     }
     p{
       @apply text-textWhite text-base opacity-50

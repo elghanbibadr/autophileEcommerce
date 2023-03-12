@@ -11,7 +11,8 @@ module.exports = {
       orangePale:"#efae8b",
       paleBlack:"#191919",
       black:"#000000",
-      blackHover:"#565454"
+      lightGray:"#F1F1F1",
+      blackHover:"#565454",
     },
     border:{
       "border-1":"1px"
