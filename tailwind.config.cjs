@@ -8,8 +8,15 @@ module.exports = {
       textColor:"#000033",
       textWhite:"#fff",
       orange:"#d87d4a",
-      orangePale:"#efae8b"
+      orangePale:"#efae8b",
+      paleBlack:"#191919",
+      black:"#000000",
+      blackHover:"#565454"
+    },
+    border:{
+      "border-1":"1px"
     }
+
   },
   plugins: [],
 }
