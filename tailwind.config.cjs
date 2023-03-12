@@ -6,7 +6,9 @@ module.exports = {
   ],  theme: {
     colors: {
       textColor:"#000033",
-      textWhite:"#fff"
+      textWhite:"#fff",
+      orange:"#d87d4a",
+      orangePale:"#efae8b"
     }
   },
   plugins: [],
