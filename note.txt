@@ -1,0 +1,3 @@
+ <Btn className='bg-orange hover:bg-orangePale' text="see product" />
+      <Btn className='bg-black text-white hover:bg-blackHover' text="see product" />
+      <Btn className='text-black border-[1px] py-2 hover:bg-blackHover hover:text-textWhite' text="see product" />
