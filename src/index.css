@@ -32,4 +32,20 @@ body{
     p{
       @apply text-textWhite text-base opacity-50
     }
+
+    .flex-row-between{
+      @apply flex  justify-between items-center
+    }
+    .flex-row{
+      @apply flex  items-center
+    }
+    .flex-col-between{
+      @apply flex  flex-col justify-between items-center
+    }
   }
+
+  img{
+    cursor: pointer;
+  }
+
+  
