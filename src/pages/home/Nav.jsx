@@ -12,18 +12,17 @@ const Nav = () => {
         setBackdropIsOpen(true)
     }
   return (
-    <header className='bg-black flex h-20 py-2 px-6 '>
       <nav className='flex-row-between w-full'>
       <div className='flex-row'>
           <img className='mr-8' src={hamburgerLogo} alt='hamburger logo icon' />
            <img src={logo}  alt='audiophile logo'  />
       </div>
       <img onClick={handleCardShopClicked} src={cart} alt='cart icon' />
+      { backdropIsOpen &&  <Overlay setBackdropIsOpen={setBackdropIsOpen} >
+         <ProductIntroCard/>
+       </Overlay>  }
       </nav>
-     { backdropIsOpen &&  <Overlay setBackdropIsOpen={setBackdropIsOpen} >
-        <ProductIntroCard/>
-      </Overlay>  }
-    </header>
+
   )
 }
 
