@@ -1,10 +1,8 @@
 import React from 'react'
-import ProductIntroCard from './componenet/UI/ProductIntroCard'
 const App = () => {
   return (
     <div >
-      <h1>hello world</h1>
-      <ProductIntroCard/>
+      <h1 className='text-black'>hello world</h1>
     </div>
   )
 }
