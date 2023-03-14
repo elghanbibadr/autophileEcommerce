@@ -17,7 +17,14 @@ module.exports = {
     },
     border:{
       "border-1":"1px"
+    },
+    backgroundImage: {
+      'hero-mobile': "url('../../../public/images/home/mobile/image-hero.jpg')",
+      'hero-tablet': "url('../../../public/images/home/tablet/image-hero.jpg')",
+      'hero-desktop': "url('../../../public/images/home/desktop/image-hero.jpg')",
+       
     }
+
 
   },
   plugins: [],

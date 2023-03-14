@@ -1,6 +1,7 @@
 import Nav from './Nav'
 import { useState } from 'react'
 import ProductsIntroGridContainer from '../../componenet/UI/ProductsIntroGridContainer'
+import Hero from './Hero'
 export const Home = () => {
    const [ProductsIntroGridContainerOpen,setProductIntroGridContainerOpen] = useState(false)
 
@@ -8,6 +9,7 @@ export const Home = () => {
   <header >
         <Nav ProductsIntroGridContainerOpen={ProductsIntroGridContainerOpen} setProductIntroGridContainerOpen={setProductIntroGridContainerOpen} />
         {ProductsIntroGridContainerOpen &&  <ProductsIntroGridContainer />}
+        <Hero />
     </header>
    )
    
