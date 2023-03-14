@@ -21,7 +21,7 @@ const ProductsIntroGridContainer = () => {
     },
 ]
   return (
-    <ul className='flex items-center   bg-white  mt-6  h-[250px] px-4 gap-x-4' >
+    <ul className='flex items-center   bg-white  mt-6  h-[250px] px-4 gap-x-4 lg:gap-x-10' >
     {data.map(({id,name,img})=>{
      return <ProductIntroCard key={id} name={name} img={img} />
     })}  

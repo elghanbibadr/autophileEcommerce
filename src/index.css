@@ -28,7 +28,7 @@ body{
     }
 
     h4{
-      @apply  text-white font-semibold text-lg leading-[1.1] tracking-wide  md:text-2xl lg:text-3xl  ;
+      @apply  text-white font-semibold text-base leading-[1.1] tracking-wide  md:text-lg lg:text-xl  ;
     }
 
     p{
