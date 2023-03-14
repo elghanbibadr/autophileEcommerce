@@ -1,9 +1,13 @@
 import Nav from './Nav'
+import { useState } from 'react'
 import ProductsIntroGridContainer from '../../componenet/UI/ProductsIntroGridContainer'
 export const Home = () => {
+   const [ProductsIntroGridContainerOpen,setProductIntroGridContainerOpen] = useState(false)
+
    return (
-  <header className='bg-paleBlack relative flex h-20 py-2 px-6 '>
-        <Nav />
+  <header >
+        <Nav setProductIntroGridContainerOpen={setProductIntroGridContainerOpen} />
+        {ProductsIntroGridContainerOpen &&  <ProductsIntroGridContainer />}
     </header>
    )
    

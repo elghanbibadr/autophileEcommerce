@@ -5,8 +5,6 @@ const App = () => {
   return (
     <>
     <Home/>
-    
-    <ProductsIntroGridContainer />
     </>
   )
 }
