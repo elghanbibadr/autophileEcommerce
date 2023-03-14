@@ -6,7 +6,7 @@ export const Home = () => {
 
    return (
   <header >
-        <Nav setProductIntroGridContainerOpen={setProductIntroGridContainerOpen} />
+        <Nav ProductsIntroGridContainerOpen={ProductsIntroGridContainerOpen} setProductIntroGridContainerOpen={setProductIntroGridContainerOpen} />
         {ProductsIntroGridContainerOpen &&  <ProductsIntroGridContainer />}
     </header>
    )
