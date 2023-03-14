@@ -6,7 +6,7 @@ const Overlay = (props) => {
         } 
     }
   return (
-    <div onClick={hanldeOverlayClicked} className='bg-lightBlack absolute backdrop inset-0 grid grid-cols-1 px-20  justify-center items-center'>
+    <div onClick={hanldeOverlayClicked} className='bg-lightBlack fixed backdrop inset-0 z-50 grid grid-cols-1 px-20  justify-center items-center'>
         {props.children}
     </div>
   )

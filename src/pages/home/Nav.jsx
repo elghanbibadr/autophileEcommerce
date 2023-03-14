@@ -3,7 +3,6 @@ import hamburgerLogo from ".././../../public/images/shared/tablet/icon-hamburger
 import logo from "../../../public/images/shared/desktop/logo.svg"
 import cart from "../../../public/images/shared/desktop/icon-cart.svg"
 import Overlay from '../../componenet/UI/Overlay'
-import ProductIntroCard from "../../componenet/UI/ProductIntroCard"
 
 const Nav = (props) => {
     const [backdropIsOpen,setBackdropIsOpen] = useState(false)
@@ -23,7 +22,6 @@ const Nav = (props) => {
       </div>
       <img onClick={handleCardShopClicked} src={cart} alt='cart icon' />
       { backdropIsOpen &&  <Overlay setBackdropIsOpen={setBackdropIsOpen} >
-         <ProductIntroCard/>
        </Overlay>  }
       </nav>
 
