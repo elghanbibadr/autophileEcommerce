@@ -75,3 +75,11 @@ body{
    background-repeat: no-repeat;
    background-position:center;
   }
+
+  .articleImg{
+     background-position:right !important;
+     background-size: cover;
+      
+   /* background-size: ; */
+   
+  }

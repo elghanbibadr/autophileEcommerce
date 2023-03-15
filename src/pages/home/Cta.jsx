@@ -4,7 +4,7 @@ import zx9speakerimageDesktop from "../../../public/images/home/desktop/image-sp
 import Btn from "../../componenet/UI/Btn"
 const Cta = () => {
   return (
-        <div className='bg-orange cta rounded-md flex  flex-col items-center text-center justify-between p-6 lg:grid lg:grid-cols-2 lg:text-left lg:bg-left'>
+        <div className='bg-orange my-14 cta rounded-md flex  flex-col items-center text-center justify-between p-6 lg:grid lg:grid-cols-2 lg:text-left lg:bg-left'>
             <img className='lg:hidden' src={zx9speakerimage} alt='zx9 speaker image' />
            <img className='hidden  lg:block w-full p-10 scale-90 ' src={zx9speakerimageDesktop} alt='zx9 speaker image' />
             <div className='my-8 '>
