@@ -1,7 +1,10 @@
 import React from 'react'
 import headphoneImg from "../../../public/images/shared/desktop/image-headphones.png"
+import speakerImg from "../../../public/images/shared/desktop/image-speakers.png"
+import earhphoneImg from "../../../public/images/shared/desktop/image-earphones.png"
 import ProductIntroCard from './ProductIntroCard'
-// image-earphones
+
+
 const ProductsIntroGridContainer = () => {
     const data=[
         {
@@ -12,12 +15,12 @@ const ProductsIntroGridContainer = () => {
         {
         id:2,
         name:"speakers",
-        img:headphoneImg
+        img:speakerImg
     },
         {
         id:3,
         name:"earphones",
-        img:headphoneImg
+        img:earhphoneImg
     },
 ]
   return (
