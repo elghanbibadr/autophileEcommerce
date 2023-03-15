@@ -22,7 +22,8 @@ module.exports = {
       'hero-mobile': "url('../../../public/images/home/mobile/image-hero.jpg')",
       'hero-tablet': "url('../../../public/images/home/tablet/image-hero.jpg')",
       'hero-desktop': "url('../../../public/images/home/desktop/image-hero.jpg')",
-       
+      "ctaSpeaker-mobile":"url('../../../public/home/mobile/image-speaker-zx9.png')",
+      "circlePattern":"url('../../../public/home/desktop/pattern-circles.svg')"
     }
 
 
