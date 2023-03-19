@@ -1,8 +1,8 @@
 import React from 'react'
 
-const LinksList = () => {
+const LinksList = (props) => {
   return (
-    <ul className='flex justify-between  text-sm my-8 font-bold'>
+    <ul className={`${props.className} flex justify-between  text-sm my-8 font-bold`}>
     <li>HOME</li>
     <li className='mx-6'>HEADPHONES</li>
     <li>SPEAKERS</li>

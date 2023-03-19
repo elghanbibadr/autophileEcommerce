@@ -4,7 +4,7 @@ import closeLogo from ".././../../public/images/shared/tablet/icon-close-menu.sv
 import logo from "../../../public/images/shared/desktop/logo.svg"
 import cart from "../../../public/images/shared/desktop/icon-cart.svg"
 import Overlay from '../../componenet/UI/Overlay'
-
+import LinksList from '../../componenet/UI/LinksList'
 
 const Nav = (props) => {
     const [backdropIsOpen,setBackdropIsOpen] = useState(false)
@@ -27,6 +27,7 @@ const Nav = (props) => {
         { props.ProductsIntroGridContainerOpen &&  <img onClick={handleCloseIconClicked} className='mr-8 lg:hidden' src={closeLogo} alt='close logo icon' />  }
            <img src={logo}  alt='audiophile logo'  />
       </div>
+           <LinksList className="hidden lg:flex" />
       <img onClick={handleCardShopClicked} src={cart} alt='cart icon' />
       { backdropIsOpen &&  <Overlay setBackdropIsOpen={setBackdropIsOpen} >
        </Overlay>  }
