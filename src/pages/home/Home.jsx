@@ -4,6 +4,7 @@ import ProductsIntroGridContainer from '../../componenet/UI/ProductsIntroGridCon
 import Hero from './Hero'
 import Main from './Main'
 import Container from '../../componenet/UI/Container'
+
 export const Home = () => {
    const [ProductsIntroGridContainerOpen,setProductIntroGridContainerOpen] = useState(false)
 

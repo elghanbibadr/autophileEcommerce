@@ -2,12 +2,14 @@ import React from 'react'
 import ProductsIntroGridContainer from '../../componenet/UI/ProductsIntroGridContainer'
 import Cta from './Cta'
 import { Article } from './Article'
+import { Callout } from './Callout'
 const Main = () => {
   return (
     <>
     <ProductsIntroGridContainer/>
     <Cta/>
     <Article />
+    <Callout />
     </>
   )
 }
