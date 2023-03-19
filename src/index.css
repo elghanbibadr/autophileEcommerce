@@ -32,7 +32,7 @@ body{
     }
 
     p{
-      @apply text-white font-light text-base opacity-50
+      @apply text-white font-light text-[0.9rem] opacity-50
     }
 
     .flex-row-between{
@@ -41,6 +41,7 @@ body{
     .flex-row{
       @apply flex  items-center
     }
+    
     .flex-col-between{
       @apply flex  flex-col justify-between items-center
     }
