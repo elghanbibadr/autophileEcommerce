@@ -1,7 +1,7 @@
 import React from 'react'
-import bestGearMobile from "../../../public/images/shared/mobile/image-best-gear.jpg"
-import bestGearTablet from "../../../public/images/shared/tablet/image-best-gear.jpg"
-import bestGearDestkop from "../../../public/images/shared/desktop/image-best-gear.jpg"
+import bestGearMobile from "/images/shared/mobile/image-best-gear.jpg"
+import bestGearTablet from "/images/shared/tablet/image-best-gear.jpg"
+import bestGearDestkop from "/images/shared/desktop/image-best-gear.jpg"
 import { useEffect ,useState } from 'react';
 
 
