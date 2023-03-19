@@ -41,7 +41,7 @@ body{
     .flex-row{
       @apply flex  items-center
     }
-    
+
     .flex-col-between{
       @apply flex  flex-col justify-between items-center
     }
@@ -71,6 +71,9 @@ body{
   } 
 
 
+li{
+  cursor: pointer;
+}
   .cta{
     background-image: url(/public/images/home/desktop/pattern-circles.svg);
    background-repeat: no-repeat;
