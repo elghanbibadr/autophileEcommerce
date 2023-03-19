@@ -11,7 +11,7 @@ export const Article = () => {
     <img className='rounded-md lg:h-3/4 w-full' src={yx1EarphoneImg} />
     <div className='bg-lightGray p-4 lg:px-20 flex flex-col  justify-center  lg:h-3/4'>
         <h3 className='text-black'>YX1 EARPHONES</h3>
-        <Btn className='text-black mt-4 w-[200px] border-[1px] py-2 hover:bg-blackHover hover:text-textWhite' text="see product" />
+        <Btn className='text-black mt-4 w-fit  border-[1px] py-2 hover:bg-blackHover hover:text-textWhite' text="see product" />
     </div>
     </div>
   )
