@@ -3,7 +3,8 @@ import logo from "/images/shared/desktop/logo.svg"
 import faceBookLogo from "/images/shared/desktop/icon-facebook.svg"
 import twitterLogo from "/images/shared/desktop/icon-twitter.svg"
 import instagramLogo from "/images/shared/desktop/icon-instagram.svg"
-import LinksList from '../../componenet/UI/LinksList'
+import LinksList from './LinksList'
+
 const Footer = () => {
   return (
     <footer className='bg-paleBlack mt-40 py-10 px-10'>
