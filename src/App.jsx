@@ -1,11 +1,16 @@
 import React from 'react'
 import { Home } from './pages/home/Home'
-import ProductsIntroGridContainer from './componenet/UI/ProductsIntroGridContainer'
+import Headphones from './pages/headphones/Headphones'
+import { createBrowserRouter,RouterProvider } from 'react-router-dom'
+
+const router=createBrowserRouter([
+  {path: '/' ,element:<Home/>},
+  {path: '/headphones' ,element:<Headphones/>}
+])
+
 const App = () => {
   return (
-    <>
-    <Home/>
-    </>
+    <RouterProvider router={router} />
   )
 }
 

@@ -5,7 +5,7 @@ import bestGearDestkop from "/images/shared/desktop/image-best-gear.jpg"
 import { useEffect ,useState } from 'react';
 
 
-export const Callout = () => {
+ const Callout = () => {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
     useEffect(() => {
@@ -32,3 +32,5 @@ export const Callout = () => {
     </div>
   )
 }
+
+export default  Callout

@@ -11,9 +11,11 @@ export const Home = () => {
    return (
       <>
   <header >
+   <Container className='bg-paleBlack'>
         <Nav ProductsIntroGridContainerOpen={ProductsIntroGridContainerOpen} setProductIntroGridContainerOpen={setProductIntroGridContainerOpen} />
         {ProductsIntroGridContainerOpen &&  <ProductsIntroGridContainer />}
         <Hero />
+   </Container>
     </header>
     <Container>
        <main >

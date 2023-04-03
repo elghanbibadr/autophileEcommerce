@@ -51,18 +51,6 @@ body{
     cursor: pointer;
   }
 
-/* */
-  /* body{
-    background: black;
-  } */
-
-  /* .hero{
-   background-size: cover; 
-    height: 100vh;
-    background-repeat: no-repeat;
-     background-position: center; 
-    background-image: url('../public/images/home/mobile/image-hero.jpg');
-  } */
 
    .hero{
    background-size: cover;

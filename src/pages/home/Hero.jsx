@@ -2,8 +2,8 @@ import React from 'react'
 import Btn from "../../componenet/UI/Btn"
 const Hero = () => {
   return (
-    <div  className=' lg:text-left hero h-screen flex flex-col text-center justify-center  bg-hero-mobile bg-center  bg-no-repeat sm:bg-hero-tablet lg:bg-hero-desktop lg:px-10 '  >
-              <div className=' lg:mx-2 lg:w-1/2'>
+    <div  className=' lg:text-left hero h-screen flex flex-col text-center justify-center  bg-hero-mobile bg-center  bg-no-repeat sm:bg-hero-tablet lg:bg-hero-desktop  '  >
+              <div className='  lg:w-1/2'>
                   <h5 className='text-white opacity-50'>NEW PRODUCT</h5>
                   <h1  className=''>XX99 MARK II HEADPHONES</h1>
                   <p className=' my-4 lg:w-2/3'>
