@@ -9,8 +9,12 @@ const LinksList = (props) => {
     <Link to="/headphones">
         <li className='hover:text-orange transition-colors mx-6 duration-500'>HEADPHONES</li>
     </Link>
-    <li className='hover:text-orange transition-colors duration-500'>SPEAKERS</li>
-    <li className='ml-6 hover:text-orange transition-colors duration-500'>EARPHONES</li>
+    <Link to="speakers">
+      <li className='hover:text-orange transition-colors duration-500'>SPEAKERS</li>
+    </Link>
+    <Link className='earphones'>
+      <li className='ml-6 hover:text-orange transition-colors duration-500'>EARPHONES</li>
+    </Link>
 </ul>
   )
 }

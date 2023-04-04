@@ -1,8 +1,11 @@
 import React from 'react'
-
+import Container from '../../componenet/UI/Container'
 const Headphones = () => {
   return (
-    <h1 className='text-black'>Headphones page</h1>
+    <Container className='bg-paleBlack'>
+    {/* <Hero /> */}
+      <h1>Headphones page</h1>
+</Container>
   )
 }
 

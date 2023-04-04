@@ -21,7 +21,7 @@ const Nav = (props) => {
    props.setProductIntroGridContainerOpen(false)
   }
   return (
-      <nav className='flex-row-between w-full bg-paleBlack relative  h-20 py-2  '>
+      <nav className='flex-row-between px-6  max-w-[1440px] lg:mx-auto lg:px-16 relative  h-20 py-2  '>
       <div className='flex-row'>
          { !props.ProductsIntroGridContainerOpen &&  <img onClick={handleMenuHamburgerClicked} className='mr-8 lg:hidden' src={hamburgerLogo} alt='hamburger logo icon' /> }
         { props.ProductsIntroGridContainerOpen &&  <img onClick={handleCloseIconClicked} className='mr-8 lg:hidden' src={closeLogo} alt='close logo icon' />  }
