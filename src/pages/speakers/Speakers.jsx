@@ -1,9 +1,21 @@
 import React from 'react'
-
-const speakers = () => {
+import Container from '../../componenet/UI/Container'
+import RouteDescName from '../../componenet/UI/RouteDescName'
+import Callout from '../../componenet/UI/Callout'
+import Footer from '../../componenet/UI/Footer'
+const Speakers = () => {
   return (
-    <h1>speakers</h1>
+    <>
+    <Container className='bg-paleBlack'>
+     <RouteDescName routeName="speaker"  />
+</Container>
+     <Container>
+         <Callout />
+     </Container>
+     <Footer />
+    </>
+
   )
 }
 
-export default speakers
+export default Speakers

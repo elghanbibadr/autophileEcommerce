@@ -1,11 +1,20 @@
 import React from 'react'
+
 import Container from '../../componenet/UI/Container'
+import RouteDescName from '../../componenet/UI/RouteDescName'
+import Footer from '../../componenet/UI/Footer'
+import Callout from '../../componenet/UI/Callout'
 const Headphones = () => {
   return (
+    <>
     <Container className='bg-paleBlack'>
-    {/* <Hero /> */}
-      <h1>Headphones page</h1>
+     <RouteDescName routeName="Headphones"  />
 </Container>
+     <Container>
+       <Callout />
+     </Container>
+       <Footer />
+    </>
   )
 }
 

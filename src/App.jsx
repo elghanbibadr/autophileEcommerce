@@ -3,8 +3,8 @@ import { Home } from './pages/home/Home'
 import { Route,Routes } from 'react-router-dom'
 import Headphones from './pages/headphones/Headphones'
 import Nav from './pages/home/Nav'
-import Earphones from './pages/earphone/earphones'
-import Speakers from './pages/speakers/speakers'
+import Earphones from './pages/earphone/Earphones'
+import Speakers from './pages/speakers/Speakers'
 import ProductsIntroGridContainer from './componenet/UI/ProductsIntroGridContainer'
 
 

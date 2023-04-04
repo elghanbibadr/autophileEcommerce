@@ -12,7 +12,7 @@ const LinksList = (props) => {
     <Link to="speakers">
       <li className='hover:text-orange transition-colors duration-500'>SPEAKERS</li>
     </Link>
-    <Link className='earphones'>
+    <Link to='earphones'>
       <li className='ml-6 hover:text-orange transition-colors duration-500'>EARPHONES</li>
     </Link>
 </ul>
