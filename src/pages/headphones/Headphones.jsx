@@ -4,7 +4,12 @@ import Container from '../../componenet/UI/Container'
 import RouteDescName from '../../componenet/UI/RouteDescName'
 import Footer from '../../componenet/UI/Footer'
 import Callout from '../../componenet/UI/Callout'
+import { products } from '../../data/Product'
+
 const Headphones = () => {
+  const headphonesProduct=products.filter(product=>product.category==='headphones')
+  console.log(headphonesProduct)
+  console.log('hi')
   return (
     <>
     <Container className='bg-paleBlack'>

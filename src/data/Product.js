@@ -1,5 +1,4 @@
-{
-    "products": [
+    export const products= [
       {
         "id": 1,
         "slug": "yx1-earphones",
@@ -532,5 +531,7 @@
           }
         ]
       }
+    
     ]
-  }
+  
+    
