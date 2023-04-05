@@ -1,20 +1,41 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link,NavLink,useLocation } from 'react-router-dom'
 const LinksList = (props) => {
+  const location = useLocation();
+  const { pathname } = location;
+
   return (
-    <ul className={`${props.className} flex justify-between  text-sm my-8 font-bold lg:text-md`}>
-    <Link to="/">
+    <ul className={`${props.className} flex justify-between  text-[0.87rem] my-8 font-bold lg:text-md`}>
+    <NavLink
+    exact
+     to="/"
+     activeClassName={pathname === "/" ? "active" : ""}
+
+     >
         <li className='hover:text-orange transition-colors duration-500'>HOME</li>
-    </Link>
-    <Link to="/headphones">
-        <li className='hover:text-orange transition-colors mx-6 duration-500'>HEADPHONES</li>
-    </Link>
-    <Link to="speakers">
+    </NavLink>
+    <NavLink 
+    exact
+    to="/headphones"
+    activeClassName={pathname === "/headphones" ? "active" : ""}
+    >
+        <li className='hover:text-orange transition-colors mx-8 duration-500'>HEADPHONES</li>
+    </NavLink>
+    <NavLink 
+    exact
+    to="speakers"
+    activeClassName={pathname === "/speakers" ? "active" : ""}
+    >
       <li className='hover:text-orange transition-colors duration-500'>SPEAKERS</li>
-    </Link>
-    <Link to='earphones'>
+    </NavLink>
+    <NavLink
+    exact
+     to='earphones'
+     activeClassName={pathname === "/earphones" ? "active" : ""}
+
+     >
       <li className='ml-6 hover:text-orange transition-colors duration-500'>EARPHONES</li>
-    </Link>
+    </NavLink>
 </ul>
   )
 }

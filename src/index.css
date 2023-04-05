@@ -13,6 +13,9 @@ body{
 }
 
 
+.active{
+  color: #d87d4a;
+}
 
 @layer components {
     h1 {
