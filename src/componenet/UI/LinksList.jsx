@@ -19,7 +19,7 @@ const LinksList = (props) => {
     to="/headphones"
     activeClassName={pathname === "/headphones" ? "active" : ""}
     >
-        <li className='hover:text-orange transition-colors mx-8 duration-500'>HEADPHONES</li>
+        <li className='hover:text-orange transition-colors md:mx-8 duration-500'>HEADPHONES</li>
     </NavLink>
     <NavLink 
     exact

@@ -16,7 +16,9 @@ const Headphones = () => {
      <RouteDescName routeName="Headphones"  />
 </Container>
      <Container>
-    <ProductDesc/>
+       {headphonesProduct.map(({id,description,image,name})=>{
+        return <ProductDesc key={id} description={description} name={name} image={image} />
+       })}
        <Callout />
      </Container>
        <Footer />
