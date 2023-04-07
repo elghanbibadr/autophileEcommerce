@@ -7,7 +7,6 @@ import Earphones from './pages/earphone/Earphones'
 import Speakers from './pages/speakers/Speakers'
 import ProductsIntroGridContainer from './componenet/UI/ProductsIntroGridContainer'
 
-
 const App = () => {
   const [ProductsIntroGridContainerOpen,setProductIntroGridContainerOpen] = useState(false)
 
@@ -16,8 +15,12 @@ const App = () => {
   <>
        <div className='bg-paleBlack'>
          <Nav ProductsIntroGridContainerOpen={ProductsIntroGridContainerOpen} setProductIntroGridContainerOpen={setProductIntroGridContainerOpen} />
-          {ProductsIntroGridContainerOpen &&  <ProductsIntroGridContainer className='absolute inset-x-0 lg:hidden' />}
-       </div>
+          {ProductsIntroGridContainerOpen &&  
+            <div className=''>
+              <ProductsIntroGridContainer className=' absolute  inset-x-0 lg:hidden' />
+            </div>
+          }
+            </div>
     <Routes>
     <Route path="/" element={<Home />} />
     <Route path="/headphones" element={<Headphones />} />

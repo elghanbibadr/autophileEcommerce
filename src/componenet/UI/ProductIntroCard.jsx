@@ -3,7 +3,7 @@ import arrowRight from "../../../public/images/shared/desktop/icon-arrow-right.s
 
 const ProductIntroCard = (props) => {
   return (
-    <li className='bg-lightGray rounded-md relative h-40 flex justify-center  flex-col items-center w-full'>
+    <li className='bg-lightGray rounded-md relative h-40 flex my-10 justify-center  flex-col items-center w-full'>
         <img className='h-32 absolute  bottom-14 ' src={props.img} />
         <div className='mt-20 text-center  uppercase'>
           <h4 className='text-black mb-2 font-semibold'>{props.name}</h4>
