@@ -8,16 +8,14 @@ import { products } from '../../data/Product'
 import ProductDesc from '../../componenet/ProductDesc'
 const Headphones = () => {
   const headphonesProduct=products.filter(product=>product.category==='headphones')
-  console.log(headphonesProduct)
-  console.log('hi')
   return (
     <>
     <Container className='bg-paleBlack'>
      <RouteDescName routeName="Headphones"  />
 </Container>
      <Container>
-       {headphonesProduct.map(({id,description,image,name})=>{
-        return <ProductDesc key={id} description={description} name={name} image={image} />
+       {headphonesProduct.reverse().map(({id,description,categoryImage,name},index)=>{
+        return <ProductDesc key={id} id={index} description={description} name={name} categoryImage={categoryImage} />
        })}
        <Callout />
      </Container>

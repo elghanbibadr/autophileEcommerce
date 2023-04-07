@@ -33,7 +33,7 @@ body{
     }
 
     p{
-      @apply text-white font-light text-[0.9rem] opacity-50
+      @apply text-white font-light text-[0.9rem] opacity-50 lg:text-[1rem]
     }
 
     .flex-row-between{
