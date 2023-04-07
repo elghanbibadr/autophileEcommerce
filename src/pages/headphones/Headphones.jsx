@@ -19,7 +19,7 @@ const Headphones = () => {
        {headphonesProduct.reverse().map(({id,description,categoryImage,name,new:isNewProduct},index)=>{
         return <ProductDesc key={id} id={index} description={description} name={name} new={isNewProduct} categoryImage={categoryImage} />
        })}
-      <ProductsIntroGridContainer />
+      <ProductsIntroGridContainer className='flex mt-[8rem] ' />
        <Callout />
      </Container>
        <Footer />

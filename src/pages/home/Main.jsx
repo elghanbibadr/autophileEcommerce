@@ -6,7 +6,7 @@ import { Article } from './Article'
 const Main = () => {
   return (
     <>
-    <ProductsIntroGridContainer/>
+      <ProductsIntroGridContainer className='flex mt-[10rem]' />
     <Cta/>
     <Article />
     <Callout />

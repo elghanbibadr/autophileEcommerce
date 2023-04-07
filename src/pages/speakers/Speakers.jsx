@@ -5,9 +5,11 @@ import Callout from '../../componenet/UI/Callout'
 import ProductDesc from '../../componenet/ProductDesc'
 import Footer from '../../componenet/UI/Footer'
 import { products } from '../../data/Product'
+import ProductsIntroGridContainer from "../../componenet/UI/ProductsIntroGridContainer"
+
 const  Speakers = () => {
   const speakersProduct =products.filter(product=>product.category=="speakers")
-   console.log(speakersProduct)
+
   return (
     <>
     <Container className='bg-paleBlack'>
@@ -17,7 +19,8 @@ const  Speakers = () => {
      {speakersProduct.reverse().map(({id,description,categoryImage,name,new:isNewProduct},index)=>{
         return <ProductDesc key={id} id={index} description={description} name={name} new={isNewProduct} categoryImage={categoryImage} />
        })}
-         <Callout />
+        <ProductsIntroGridContainer className='flex mt-[8rem] ' />
+        <Callout />
 
      </Container>
      <Footer />

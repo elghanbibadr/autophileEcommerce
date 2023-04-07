@@ -15,7 +15,7 @@ const ProductDesc = (props) => {
   }, []);
 
   return (
-    <div className='mt-20 gap-x-[8rem] lg:grid lg:grid-cols-2 lg:mb-[7rem] '>
+    <div className='mt-20 gap-x-[8rem] lg:grid lg:grid-cols-2 lg:mb-[4rem] '>
     <div >
       <img className='rounded-md '  src={windowWidth < 400 ? props.categoryImage.mobile : windowWidth < 1024 ? props.categoryImage.tablet:props.categoryImage.desktop}  />
        </div>
