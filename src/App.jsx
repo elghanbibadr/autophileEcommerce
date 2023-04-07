@@ -16,7 +16,7 @@ const App = () => {
   <>
        <div className='bg-paleBlack'>
          <Nav ProductsIntroGridContainerOpen={ProductsIntroGridContainerOpen} setProductIntroGridContainerOpen={setProductIntroGridContainerOpen} />
-          {ProductsIntroGridContainerOpen &&  <ProductsIntroGridContainer />}
+          {ProductsIntroGridContainerOpen &&  <ProductsIntroGridContainer className='absolute inset-x-0 lg:hidden' />}
        </div>
     <Routes>
     <Route path="/" element={<Home />} />

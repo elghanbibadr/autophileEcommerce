@@ -5,7 +5,7 @@ import earhphoneImg from "../../../public/images/shared/desktop/image-earphones.
 import ProductIntroCard from './ProductIntroCard'
 
 
-const ProductsIntroGridContainer = () => {
+const ProductsIntroGridContainer = (props) => {
     const data=[
         {
         id:1,
@@ -24,7 +24,7 @@ const ProductsIntroGridContainer = () => {
     },
 ]
   return (
-    <ul className='flex absolute inset-x-0  items-center lg:hidden px-6 bg-white  mt-6  h-[250px]  gap-x-4 lg:gap-x-10' >
+    <ul className={`${props.className} flex   items-center  px-6 bg-white  mt-6  h-[250px]  gap-x-4 lg:gap-x-10' `} >
     {data.map(({id,name,img})=>{
      return <ProductIntroCard key={id} name={name} img={img} />
     })}  
