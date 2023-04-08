@@ -1,5 +1,7 @@
 import React ,{useEffect,useState} from 'react'
 import Btn from './UI/Btn'
+import { Link } from 'react-router-dom';
+
 const ProductDesc = (props) => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -25,7 +27,9 @@ const ProductDesc = (props) => {
         <p className='text-black mb-6'>
         {props.description}
         </p>
-        <Btn className='bg-orange text-white' text="see product"/>
+        <Link to={`${props.name}`}>
+          <Btn className='bg-orange text-white' text="see product"/>
+        </Link>
     </div>
     </div>
   )

@@ -23,14 +23,14 @@ const LinksList = (props) => {
     </NavLink>
     <NavLink 
     exact
-    to="speakers"
+    to="/speakers"
     activeClassName={pathname === "/speakers" ? "active" : ""}
     >
       <li className='hover:text-orange transition-colors duration-500'>SPEAKERS</li>
     </NavLink>
     <NavLink
     exact
-     to='earphones'
+     to='/earphones'
      activeClassName={pathname === "/earphones" ? "active" : ""}
 
      >
