@@ -5,6 +5,7 @@ import logo from "../../../public/images/shared/desktop/logo.svg"
 import cart from "../../../public/images/shared/desktop/icon-cart.svg"
 import Overlay from '../../componenet/UI/Overlay'
 import LinksList from '../../componenet/UI/LinksList'
+import Cart from '../../componenet/UI/Cart'
 
 const Nav = (props) => {
     const [backdropIsOpen,setBackdropIsOpen] = useState(false)
