@@ -12,8 +12,8 @@ const Headphones = () => {
   console.log(headphonesProduct)
   return (
     <>
+     <RouteDescName  routeName="Headphones"  />
     <Container className='bg-paleBlack'>
-     <RouteDescName routeName="Headphones"  />
 </Container>
      <Container>
        {headphonesProduct.reverse().map(({id,description,categoryImage,name,new:isNewProduct},index)=>{

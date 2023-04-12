@@ -25,11 +25,11 @@ const App = () => {
     <Routes>
     <Route path="/" element={<Home />} />
     <Route path="/headphones" element={<Headphones />}/>
-    <Route path="/headphones/:id" element={<ProductDetails />}/>
+    <Route path="/headphones/:name" element={<ProductDetails />}/>
      <Route path="/speakers" element={<Speakers />} />
-     <Route path="/speakers/:id" element={<ProductDetails />}/>
+     <Route path="/speakers/:name" element={<ProductDetails />}/>
     <Route path="/earphones" element={<Earphones />} /> 
-    <Route path="/earphones/:id" element={<ProductDetails />}/>
+    <Route path="/earphones/:name" element={<ProductDetails />}/>
 
   </Routes>
   </>

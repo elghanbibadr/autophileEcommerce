@@ -7,8 +7,8 @@ export const Home = () => {
 
    return (
       <>
-  <header >
-   <Container className='bg-paleBlack'>
+  <header className='bg-paleBlack'>
+   <Container >
         <Hero />
    </Container>
     </header>
