@@ -30,6 +30,7 @@ module.exports = {
     },
     screens: {
        "xs":"360px",
+       "xs2":"500px",
       'sm': '640px',
       'md': '768px', // Add your custom media query rule here
       'lg': '1024px',
