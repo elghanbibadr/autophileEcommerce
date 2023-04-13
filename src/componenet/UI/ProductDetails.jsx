@@ -5,6 +5,9 @@ import Btn from './Btn';
 import { products } from '../../data/Product';
 import IncreaseQuantityBox from './IncreaseQuantityBox';
 import { useState } from 'react';
+import Callout from './Callout';
+import ProductsIntroGridContainer from './ProductsIntroGridContainer';
+import Footer from './Footer';
 function ProductDetails() {
    const { name } = useParams();
      const currentVisibleProduct = products.find(p => p.name === name);
@@ -23,6 +26,7 @@ function ProductDetails() {
    
   
   return (
+    <>
     <Container className="p-6 bg-[#fafafa]">
       <div className='md:grid md:grid-cols-2 '>
          <img className='w-[80%] mx-auto mb-10' src={currentVisibleProduct.image.mobile} />
@@ -63,8 +67,11 @@ function ProductDetails() {
           <img className='rounded-md ' my-2  src={windowWidth <460 ? currentVisibleProduct.gallery.second.mobile :windowWidth <1024 ? currentVisibleProduct.gallery.second.tablet:currentVisibleProduct.gallery.second.desktop} />
           <img className='row-start-1 mx-auto   row-span-2 col-start-2 w-full h-full object-cover rounded-md' src={windowWidth <460 ? currentVisibleProduct.gallery.third.mobile :windowWidth <1024 ? currentVisibleProduct.gallery.third.tablet:currentVisibleProduct.gallery.third.desktop} />
         </div>
-
+        <ProductsIntroGridContainer className='flex mt-[8rem] ' />
+       <Callout />
     </Container>
+       <Footer />
+    </>
   );
 }
 
