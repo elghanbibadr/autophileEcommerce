@@ -72,17 +72,20 @@ function ProductDetails() {
           <img className='row-start-1 mx-auto   row-span-2 col-start-2 w-full h-full object-cover rounded-md' src={windowWidth <460 ? currentVisibleProduct.gallery.third.mobile :windowWidth <1024 ? currentVisibleProduct.gallery.third.tablet:currentVisibleProduct.gallery.third.desktop} />
         </div>
          {/*others products  */}
-         <div className='mt-20 lg:grid lg:grid-cols-3 lg:gap-10'>
-            {currentVisibleProduct.others.map(({image,name,slug,category})=>{
-            
-           return <div className='text-center my-10'> <img src={ windowWidth < 960 ? image.mobile : image.desktop} alt="other category product image"  /> 
-                <h3 className='text-black leading-[1.4] font-bold mt-4 mb-2'>{name}</h3>
-                {/* ${name} */}
-                <Link to={`/${slug}`}>
-                  {console.log(category)}
-          <Btn className='bg-orange text-white' text="see product"/>
-        </Link>                   </div>              
-            })}
+         <div className='mt-40'>
+           <h3 className='text-paleBlack text-center'>YOU MAY ALSO LIKE</h3>
+           <div className=' lg:grid lg:grid-cols-3 lg:gap-10'>
+              {currentVisibleProduct.others.map(({image,name,slug,category})=>{
+           
+             return <div className='text-center my-10'> <img src={ windowWidth < 960 ? image.mobile : image.desktop} alt="other category product image"  />
+                  <h3 className='text-paleBlack leading-[1.4] font-bold my-8 text-3xl'>{name}</h3>
+                  {/* ${name} */}
+                  <Link to={`/${slug}`}>
+                    {console.log(category)}
+            <Btn className='bg-orange text-white' text="see product"/>
+                   </Link>                   </div>
+              })}
+           </div>
          </div>
         <ProductsIntroGridContainer className='flex mt-[8rem] ' />
        <Callout />
