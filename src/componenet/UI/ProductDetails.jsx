@@ -12,7 +12,6 @@ function ProductDetails() {
    const { slug} = useParams();
      const currentVisibleProduct = products.find(p => p.slug === slug);
      const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-console.log(currentVisibleProduct,name)
      useEffect(() => {
        const handleResize = () => {
          setWindowWidth(window.innerWidth);
@@ -27,7 +26,7 @@ console.log(currentVisibleProduct,name)
   console.log(currentVisibleProduct)
   return (
     <>
-    <Container className="p-6 bg-[#fafafa]">
+    <Container className="p-6 ">
       <div className='md:grid md:grid-cols-2 '>
          <img className='w-[80%] mx-auto mb-10' src={currentVisibleProduct.image.mobile} />
         <div className='self-center'>
@@ -73,7 +72,7 @@ console.log(currentVisibleProduct,name)
           <img className='row-start-1 mx-auto   row-span-2 col-start-2 w-full h-full object-cover rounded-md' src={windowWidth <460 ? currentVisibleProduct.gallery.third.mobile :windowWidth <1024 ? currentVisibleProduct.gallery.third.tablet:currentVisibleProduct.gallery.third.desktop} />
         </div>
          {/*others products  */}
-         <div className='mt-20'>
+         <div className='mt-20 lg:grid lg:grid-cols-3 lg:gap-10'>
             {currentVisibleProduct.others.map(({image,name,slug,category})=>{
             
            return <div className='text-center my-10'> <img src={ windowWidth < 960 ? image.mobile : image.desktop} alt="other category product image"  /> 

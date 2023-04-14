@@ -23,12 +23,12 @@ const ProductDesc = (props) => {
        </div>
     <div className={`text-center ${props.id==1 ? 'lg:row-start-1':''}  lg:text-left lg:self-center p-4`}>
     {props.new &&   <span className='text-orange tracking-[0.62rem] font-light uppercase'> new product </span> }
-
+            
         <h3 className='text-black leading-[1.4] font-bold mt-4 mb-2'>{props.name}</h3>
         <p className='text-black mb-6'>
         {props.description}
         </p>
-        <Link to={`${props.name}`}>
+        <Link to={`${props.slug}`}>
           <Btn className='bg-orange text-white' text="see product"/>
         </Link>
     </div>
