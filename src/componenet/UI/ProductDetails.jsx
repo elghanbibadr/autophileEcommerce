@@ -73,12 +73,12 @@ function ProductDetails() {
           <img className='row-start-1 mx-auto   row-span-2 col-start-2 w-full h-full object-cover rounded-md' src={windowWidth <460 ? currentVisibleProduct.gallery.third.mobile :windowWidth <1024 ? currentVisibleProduct.gallery.third.tablet:currentVisibleProduct.gallery.third.desktop} />
         </div>
          {/*others products  */}
-         <div className='mt-40'>
+         <div className='mt-40 max-w-[1000px] mx-auto'>
            <h3 className='text-paleBlack text-center'>YOU MAY ALSO LIKE</h3>
            <div className=' lg:grid lg:grid-cols-3 lg:gap-10'>
               {currentVisibleProduct.others.map(({image,name,slug,category})=>{
            
-             return <div className='text-center my-10'> <img src={ windowWidth < 960 ? image.mobile : image.desktop} alt="other category product image"  />
+             return <div className='text-center my-10'> <img className='' src={ windowWidth < 960 ? image.mobile : image.desktop} alt="other category product image"  />
                   <h3 className='text-paleBlack leading-[1.4] font-bold my-8 text-3xl'>{name}</h3>
                   {/* ${name} */}
                   <Link to={`/${slug}`}>
