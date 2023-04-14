@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams,Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import Container from './Container';
 import Btn from './Btn';
@@ -9,10 +9,10 @@ import Callout from './Callout';
 import ProductsIntroGridContainer from './ProductsIntroGridContainer';
 import Footer from './Footer';
 function ProductDetails() {
-   const { name } = useParams();
-     const currentVisibleProduct = products.find(p => p.name === name);
+   const { slug} = useParams();
+     const currentVisibleProduct = products.find(p => p.slug === slug);
      const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
+console.log(currentVisibleProduct,name)
      useEffect(() => {
        const handleResize = () => {
          setWindowWidth(window.innerWidth);
@@ -24,13 +24,18 @@ function ProductDetails() {
        };
      }, []);
    
-  
+  console.log(currentVisibleProduct)
   return (
     <>
     <Container className="p-6 bg-[#fafafa]">
       <div className='md:grid md:grid-cols-2 '>
          <img className='w-[80%] mx-auto mb-10' src={currentVisibleProduct.image.mobile} />
         <div className='self-center'>
+
+
+
+
+            
         {currentVisibleProduct.new &&   <span className='text-orange tracking-[0.62rem] font-light uppercase'> new product </span> }
             <h3 className='text-black leading-[1.4] font-bold mt-4 mb-2'>{currentVisibleProduct.name}</h3>
             <p className='text-black mb-6'>{currentVisibleProduct.description}</p>
@@ -67,6 +72,19 @@ function ProductDetails() {
           <img className='rounded-md ' my-2  src={windowWidth <460 ? currentVisibleProduct.gallery.second.mobile :windowWidth <1024 ? currentVisibleProduct.gallery.second.tablet:currentVisibleProduct.gallery.second.desktop} />
           <img className='row-start-1 mx-auto   row-span-2 col-start-2 w-full h-full object-cover rounded-md' src={windowWidth <460 ? currentVisibleProduct.gallery.third.mobile :windowWidth <1024 ? currentVisibleProduct.gallery.third.tablet:currentVisibleProduct.gallery.third.desktop} />
         </div>
+         {/*others products  */}
+         <div className='mt-20'>
+            {currentVisibleProduct.others.map(({image,name,slug,category})=>{
+            
+           return <div className='text-center my-10'> <img src={ windowWidth < 960 ? image.mobile : image.desktop} alt="other category product image"  /> 
+                <h3 className='text-black leading-[1.4] font-bold mt-4 mb-2'>{name}</h3>
+                {/* ${name} */}
+                <Link to={`/${slug}`}>
+                  {console.log(category)}
+          <Btn className='bg-orange text-white' text="see product"/>
+        </Link>                   </div>              
+            })}
+         </div>
         <ProductsIntroGridContainer className='flex mt-[8rem] ' />
        <Callout />
     </Container>
