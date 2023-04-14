@@ -29,7 +29,10 @@ const Nav = (props) => {
            <img src={logo}  alt='audiophile logo'  />
       </div>
            <LinksList className="hidden lg:flex" />
-      <img onClick={handleCardShopClicked} src={cart} alt='cart icon' />
+      <div>
+          <img className='relative' onClick={handleCardShopClicked} src={cart} alt='cart icon' />
+          {<span className='absolute top-4  bg-orange h-[20px] text-xs font-bold w-[20px] rounded-full items-center justify-center inline-flex right-[18px] lg:right-[72px]'> 1 </span>}
+      </div>
       { backdropIsOpen &&  <Overlay setBackdropIsOpen={setBackdropIsOpen} >
        </Overlay>  }
       </nav>
