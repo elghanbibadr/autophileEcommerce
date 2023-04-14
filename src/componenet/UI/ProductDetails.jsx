@@ -22,6 +22,7 @@ function ProductDetails() {
          window.removeEventListener('resize', handleResize);
        };
      }, []);
+
    
   console.log(currentVisibleProduct)
   return (
@@ -93,7 +94,7 @@ function ProductDetails() {
        <Footer />
     </>
   );
-}
+  }
 
 
 export default ProductDetails
