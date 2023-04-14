@@ -9,7 +9,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AppContextProvider>
       <BrowserRouter>
-      <ScrollToTop />
+      <ScrollToTop/>
         <App />
       </BrowserRouter>
     </AppContextProvider>
