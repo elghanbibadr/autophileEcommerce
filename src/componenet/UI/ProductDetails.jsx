@@ -3,13 +3,16 @@ import { useEffect } from 'react';
 import Container from './Container';
 import Btn from './Btn';
 import { products } from '../../data/Product';
+import { AppContext } from '../../store/AppContext';
 import IncreaseQuantityBox from './IncreaseQuantityBox';
-import { useState } from 'react';
+import { useState ,useContext} from 'react';
 import Callout from './Callout';
 import ProductsIntroGridContainer from './ProductsIntroGridContainer';
 import Footer from './Footer';
 function ProductDetails() {
    const { slug} = useParams();
+   const {SetItemInCardNumber}=useContext(AppContext)
+
      const currentVisibleProduct = products.find(p => p.slug === slug);
      const [windowWidth, setWindowWidth] = useState(window.innerWidth);
      useEffect(() => {
@@ -23,6 +26,11 @@ function ProductDetails() {
        };
      }, []);
 
+     const handleItemQuantityChanged=(value)=>console.log(value);
+
+     const handleProductAddedToCart=() => {
+     SetItemInCardNumber()
+     }
    
   console.log(currentVisibleProduct)
   return (
@@ -31,18 +39,15 @@ function ProductDetails() {
       <div className='md:grid md:grid-cols-2 '>
          <img className='w-[80%] mx-auto mb-10' src={currentVisibleProduct.image.mobile} />
         <div className='self-center'>
-
-
-
-
-            
         {currentVisibleProduct.new &&   <span className='text-orange tracking-[0.62rem] font-light uppercase'> new product </span> }
             <h3 className='text-black leading-[1.4] font-bold mt-4 mb-2'>{currentVisibleProduct.name}</h3>
             <p className='text-black mb-6'>{currentVisibleProduct.description}</p>
             <h5 className='text-black text-[1.2rem] my-8 font-bold'>${currentVisibleProduct.price}</h5>
             <div className='flex items-center'>
-                 <IncreaseQuantityBox/>
-                <Btn className='bg-orange mx-4 text-white' text="ADD TO CART" />
+                 <IncreaseQuantityBox  handleItemQuantityChanged={handleItemQuantityChanged}/>
+                <div onClick={handleProductAddedToCart}>
+                  <Btn className='bg-orange mx-4 text-white' text="ADD TO CART" />
+                </div>
             </div>
         </div>
       </div>
@@ -80,11 +85,10 @@ function ProductDetails() {
            
              return <div className='text-center my-10'> <img className='' src={ windowWidth < 960 ? image.mobile : image.desktop} alt="other category product image"  />
                   <h3 className='text-paleBlack leading-[1.4] font-bold my-8 text-3xl'>{name}</h3>
-                  {/* ${name} */}
                   <Link to={`/${slug}`}>
-                    {console.log(category)}
-            <Btn className='bg-orange text-white' text="see product"/>
-                   </Link>                   </div>
+                    <Btn className='bg-orange text-white' text="see product"/>
+                   </Link>
+                   </div>
               })}
            </div>
          </div>

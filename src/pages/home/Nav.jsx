@@ -6,9 +6,12 @@ import cart from "../../../public/images/shared/desktop/icon-cart.svg"
 import Overlay from '../../componenet/UI/Overlay'
 import LinksList from '../../componenet/UI/LinksList'
 import Cart from '../../componenet/UI/Cart'
+import { useContext } from 'react'
+import { AppContext } from '../../store/AppContext'
 
 const Nav = (props) => {
     const [backdropIsOpen,setBackdropIsOpen] = useState(false)
+    const {itemInCardNumber}=useContext(AppContext)
     const handleCardShopClicked=()=>{
         setBackdropIsOpen(true)
     }
@@ -31,7 +34,7 @@ const Nav = (props) => {
            <LinksList className="hidden lg:flex" />
       <div>
           <img className='relative' onClick={handleCardShopClicked} src={cart} alt='cart icon' />
-          {<span className='absolute top-4  bg-orange h-[20px] text-xs font-bold w-[20px] rounded-full items-center justify-center inline-flex right-[18px] lg:right-[72px]'> 1 </span>}
+          {itemInCardNumber!==0 && <span className='absolute top-4  bg-orange h-[20px] text-xs font-bold w-[20px] rounded-full items-center justify-center inline-flex right-[18px] lg:right-[72px]'> {itemInCardNumber} </span>}
       </div>
       { backdropIsOpen &&  <Overlay setBackdropIsOpen={setBackdropIsOpen} >
        </Overlay>  }
