@@ -29,7 +29,7 @@ function ProductDetails() {
      const handleItemQuantityChanged=(value)=>setQuantity(value);
 
      const handleProductAddedToCart=() => {
-     SetItemInCardNumber(quantity)
+     SetItemInCardNumber(prv =>prv+quantity)
      setAddedItemsToCard(prv=> [...prv,{...currentVisibleProduct,quantity:quantity}])
      }
    
@@ -44,7 +44,7 @@ function ProductDetails() {
             <p className='text-black mb-6'>{currentVisibleProduct.description}</p>
             <h5 className='text-black text-[1.2rem] my-8 font-bold'>${currentVisibleProduct.price}</h5>
             <div className='flex items-center'>
-                 <IncreaseQuantityBox  handleItemQuantityChanged={handleItemQuantityChanged}/>
+                 <IncreaseQuantityBox handleItemQuantityChanged={handleItemQuantityChanged}  itemNumber={1}/>
                 <div onClick={handleProductAddedToCart}>
                   <Btn className='bg-orange mx-4 text-white' text="ADD TO CART" />
                 </div>

@@ -1,14 +1,18 @@
 import React, { useContext, useState } from 'react'
+import { AppContext } from '../../store/AppContext';
 
-const IncreaseQuantityBox = (props) => {
-   const [itemQuantity, setItemQuantity] =useState(1)
-  const handleIncreaseBtnClicked=()=>{
-    setItemQuantity(prv => ++prv)
+const IncreaseQuantityBox = ({itemNumber,handleItemQuantityChanged}) => {
+  const [itemQuantity, setItemQuantity] = useState(() => {
+    const initialItemNumber = typeof itemNumber === 'number' && !isNaN(itemNumber) ? itemNumber : 0;
+    return initialItemNumber;
+  });  const handleIncreaseBtnClicked=()=>{
+    setItemQuantity(prv => prv + 1 )
   }
-  props.handleItemQuantityChanged(itemQuantity)
+  console.log(itemQuantity)
+  handleItemQuantityChanged(itemQuantity)
   const handleDecreaseBtnClicked=()=>{
     if (itemQuantity==1)return;
-    setItemQuantity(prv => --prv)
+    setItemQuantity(prv =>prv-1)
 
   }
     return (
