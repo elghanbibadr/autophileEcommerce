@@ -11,7 +11,7 @@ import ProductsIntroGridContainer from './ProductsIntroGridContainer';
 import Footer from './Footer';
 function ProductDetails() {
    const { slug} = useParams();
-   const {SetItemInCardNumber,setAddedItemsToCard}=useContext(AppContext)
+   const {SetItemInCardNumber,setAddedItemsToCard,addedItemsToCard}=useContext(AppContext)
    const [quantity,setQuantity]=useState(undefined)
      const currentVisibleProduct = products.find(p => p.slug === slug);
      const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -29,7 +29,17 @@ function ProductDetails() {
      const handleItemQuantityChanged=(value)=>setQuantity(value);
 
      const handleProductAddedToCart=() => {
-     SetItemInCardNumber(prv =>prv+quantity)
+     if (addedItemsToCard.some(product => product.id==currentVisibleProduct.id)){
+      SetItemInCardNumber(quantity)
+
+      console.log("already added to cart:",quantity)
+      // return
+      let index = addedItemsToCard.findIndex(obj => obj.id === currentVisibleProduct.id);
+      addedItemsToCard[index].quantity = quantity;
+     return 
+      // setAddedItemsToCard(prv=> [...prv,{...currentVisibleProduct,quantity:quantity}])
+     }
+     SetItemInCardNumber(prv => prv +quantity)
      setAddedItemsToCard(prv=> [...prv,{...currentVisibleProduct,quantity:quantity}])
      }
    
