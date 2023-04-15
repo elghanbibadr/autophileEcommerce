@@ -8,9 +8,9 @@ const IncreaseQuantityBox = () => {
     setItemQuantity(prv => --prv)
   }
     return (
-    <div className='bg-lightGray w-[140px] flex justify-between items-center px-5 py-3 '>
+    <div className='bg-lightGray w-[90px] flex justify-between items-center px-4 py-1 '>
     <span onClick={handleIncreaseBtnClicked} className='text-paleBlack cursor-pointer hover:text-orange ' >+</span>
-    <span className='text-black'>{itemQuantity}</span>
+    <span className='text-black font-semibold text-xs'>{itemQuantity}</span>
     <span onClick={handleDecreaseBtnClicked} className='text-paleBlack cursor-pointer hover:text-orange'>-</span>
 </div>
   )
