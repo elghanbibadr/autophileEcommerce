@@ -11,8 +11,8 @@ import ProductsIntroGridContainer from './ProductsIntroGridContainer';
 import Footer from './Footer';
 function ProductDetails() {
    const { slug} = useParams();
-   const {SetItemInCardNumber}=useContext(AppContext)
-
+   const {SetItemInCardNumber,setAddedItemsToCard}=useContext(AppContext)
+   const [quantity,setQuantity]=useState(undefined)
      const currentVisibleProduct = products.find(p => p.slug === slug);
      const [windowWidth, setWindowWidth] = useState(window.innerWidth);
      useEffect(() => {
@@ -26,13 +26,13 @@ function ProductDetails() {
        };
      }, []);
 
-     const handleItemQuantityChanged=(value)=>console.log(value);
+     const handleItemQuantityChanged=(value)=>setQuantity(value);
 
      const handleProductAddedToCart=() => {
-     SetItemInCardNumber()
+     SetItemInCardNumber(quantity)
+     setAddedItemsToCard(prv=> [...prv,{...currentVisibleProduct,quantity:quantity}])
      }
    
-  console.log(currentVisibleProduct)
   return (
     <>
     <Container className="p-6 ">
