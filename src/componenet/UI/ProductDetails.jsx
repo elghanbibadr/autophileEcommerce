@@ -30,7 +30,7 @@ function ProductDetails() {
 
      const handleProductAddedToCart=() => {
      if (addedItemsToCard.some(product => product.id==currentVisibleProduct.id)){
-      SetItemInCardNumber(quantity)
+      SetItemInCardNumber(prv => prv + quantity)
 
       console.log("already added to cart:",quantity)
       // return
