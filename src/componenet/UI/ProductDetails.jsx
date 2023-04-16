@@ -28,20 +28,20 @@ function ProductDetails() {
 
      const handleItemQuantityChanged=(value)=>setQuantity(value);
 
-     const handleProductAddedToCart=() => {
-     if (addedItemsToCard.some(product => product.id==currentVisibleProduct.id)){
-      SetItemInCardNumber(prv => prv + quantity)
+    const handleProductAddedToCart=() => {
+      const totalQuantity = addedItemsToCard.reduce((sum, item) => {
+        return sum + item.quantity;
+      }, 0);
+      
+      SetItemInCardNumber(totalQuantity)
+      if (addedItemsToCard.some(product => product.id==currentVisibleProduct.id)){
+   let index = addedItemsToCard.findIndex(obj => obj.id === currentVisibleProduct.id);
+   addedItemsToCard[index].quantity = quantity;
+ }       
+ setAddedItemsToCard(prv=> [...prv,{...currentVisibleProduct,quantity:quantity}])
+    }
 
-      console.log("already added to cart:",quantity)
-      // return
-      let index = addedItemsToCard.findIndex(obj => obj.id === currentVisibleProduct.id);
-      addedItemsToCard[index].quantity = quantity;
-     return 
-      // setAddedItemsToCard(prv=> [...prv,{...currentVisibleProduct,quantity:quantity}])
-     }
-     SetItemInCardNumber(prv => prv +quantity)
-     setAddedItemsToCard(prv=> [...prv,{...currentVisibleProduct,quantity:quantity}])
-     }
+ 
    
   return (
     <>
