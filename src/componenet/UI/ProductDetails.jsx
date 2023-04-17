@@ -26,20 +26,31 @@ function ProductDetails() {
        };
      }, []);
 
-     const handleItemQuantityChanged=(value)=>setQuantity(value);
-
-    const handleProductAddedToCart=() => {
+     useEffect(()=>{
       const totalQuantity = addedItemsToCard.reduce((sum, item) => {
         return sum + item.quantity;
       }, 0);
       
       SetItemInCardNumber(totalQuantity)
+
+     },[addedItemsToCard])
+     const handleItemQuantityChanged=(value)=>setQuantity(value);
+
+    const handleProductAddedToCart=() => {
+     
       if (addedItemsToCard.some(product => product.id==currentVisibleProduct.id)){
    let index = addedItemsToCard.findIndex(obj => obj.id === currentVisibleProduct.id);
    addedItemsToCard[index].quantity = quantity;
+   const totalQuantity = addedItemsToCard.reduce((sum, item) => {
+    return sum + item.quantity;
+  }, 0);
+  
+  SetItemInCardNumber(totalQuantity)
+   return
  }       
  setAddedItemsToCard(prv=> [...prv,{...currentVisibleProduct,quantity:quantity}])
     }
+
 
  
    

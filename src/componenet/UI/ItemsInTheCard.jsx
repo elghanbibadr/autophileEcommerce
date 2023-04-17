@@ -4,7 +4,7 @@ import IncreaseQuantityBox from './IncreaseQuantityBox'
 import Btn from './Btn'
 import { AppContext } from '../../store/AppContext'
 const ItemsInTheCard = () => {
-  const {addedItemsToCard}=useContext(AppContext)
+  const {addedItemsToCard,itemInCardNumber}=useContext(AppContext)
   const handleIncreaseBtnClicked=()=>{
     setItemQuantity(prv => ++prv)
   }
@@ -17,7 +17,7 @@ const ItemsInTheCard = () => {
   return (
     <div className='px-' >
         <div className='flex  justify-between items-center'>
-        <h4 className='text-black'>Cart (1)</h4>
+        <h4 className='text-black'>Cart ({itemInCardNumber})</h4>
         <p className='text-paleBlack underline'>RemoveAll</p> 
         </div>
         {addedItemsToCard.map(({cartImage,id,quantity,price,shortName})=>{
