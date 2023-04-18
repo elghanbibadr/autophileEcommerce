@@ -9,15 +9,7 @@ const ItemsInTheCard = (props) => {
     return sum +  item.quantity* Number(item.price);
   }, 0);
   
-  const handleIncreaseBtnClicked=()=>{
-    setItemQuantity(prv => ++prv)
-  }
-  const handleDecreaseBtnClicked=()=>{
-    if (itemQuantity==1)return;
-    setItemQuantity(prv => --prv)
 
-  }
-  const handleItemQuantityChanged=(itemQuantity)=>SetItemInCardNumber(prv => prv + itemQuantity)
   
   const handleRemoveAllClicked=()=>{setAddedItemsToCard([])}
   
@@ -37,15 +29,11 @@ const ItemsInTheCard = (props) => {
               <p className='text-paleBlack font-semibold'>${price}</p>
             </div>
           </div>
-          {/* increase box  */}
 
-    <div className='bg-lightGray w-[90px] flex justify-between items-center px-4 py-1 '>
-    <span onClick={handleIncreaseBtnClicked} className='text-paleBlack cursor-pointer hover:text-orange ' >+</span>
-    <span className='text-black font-semibold text-xs'>{quantity}</span>
-    <span onClick={handleDecreaseBtnClicked} className='text-paleBlack cursor-pointer hover:text-orange'>-</span>
+    <div className='bg-lightGray  flex justify-between items-center px-4 py-2 '>
+    <span className='text-black font-semibold text-xs'>x {quantity}</span>
 </div>
-{/* <IncreaseQuantityBox handleItemQuantityChanged={handleItemQuantityChanged}  itemNumber={1} /> */}
-          {/* increase box  */}
+
         </div>
         })}
         
