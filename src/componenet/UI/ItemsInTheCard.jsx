@@ -1,16 +1,15 @@
 import React, { useContext } from 'react'
-import earphoneImg from "../../../public/images/cart/image-yx1-earphones.jpg"
-import IncreaseQuantityBox from './IncreaseQuantityBox'
+import { Link } from 'react-router-dom'
 import Btn from './Btn'
 import { AppContext } from '../../store/AppContext'
 const ItemsInTheCard = (props) => {
-  const {addedItemsToCard,itemInCardNumber,SetItemInCardNumber,setAddedItemsToCard}=useContext(AppContext)
+  const {addedItemsToCard,itemInCardNumber,setBackdropIsOpen,setAddedItemsToCard}=useContext(AppContext)
   const total=addedItemsToCard.reduce((sum, item) => {
     return sum +  item.quantity* Number(item.price);
   }, 0);
   
 
-  
+  const handleCheckoutBtnClicked=() => setBackdropIsOpen(false);
   const handleRemoveAllClicked=()=>{setAddedItemsToCard([])}
   
   return (
@@ -41,7 +40,9 @@ const ItemsInTheCard = (props) => {
           <p className='text-paleBlack font-semibold'>TOTAL</p>
           <h4 className='text-black'>${total}</h4>
         </div>
-        <Btn className='bg-orange w-full mt-10 text-white' text="CHECKOUT"/>
+        <Link to="/checkout" onClick={handleCheckoutBtnClicked}>
+          <Btn className='bg-orange w-full mt-10 text-white' text="CHECKOUT"/>
+        </Link>
 
     </div>
   )

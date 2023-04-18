@@ -4,6 +4,7 @@ export const AppContext = createContext(null);
 export const AppContextProvider = ({ children }) => {
   const [itemInCardNumber, SetItemInCardNumber] =useState(0)
   const [addedItemsToCard,setAddedItemsToCard]=useState([]) 
+  const [backdropIsOpen,setBackdropIsOpen] = useState(false)
   const [itemQuantity,setItemQuantity]=useState(0)
 console.log(addedItemsToCard)
   const value = {
@@ -12,7 +13,9 @@ console.log(addedItemsToCard)
    addedItemsToCard,
    setAddedItemsToCard,
   itemQuantity,
-  setItemQuantity
+  setItemQuantity,
+  backdropIsOpen,
+  setBackdropIsOpen
 
   }
 

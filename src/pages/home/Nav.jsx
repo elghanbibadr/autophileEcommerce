@@ -10,7 +10,8 @@ import { useContext } from 'react'
 import { AppContext } from '../../store/AppContext'
 
 const Nav = (props) => {
-    const [backdropIsOpen,setBackdropIsOpen] = useState(false)
+    const {backdropIsOpen,setBackdropIsOpen} = useContext(AppContext)
+
     const {itemInCardNumber}=useContext(AppContext)
     const handleCardShopClicked=()=>{
         setBackdropIsOpen(true)
