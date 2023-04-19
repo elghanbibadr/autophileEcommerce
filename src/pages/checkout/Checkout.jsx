@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useNavigate} from 'react-router-dom';
 import Container from '../../componenet/UI/Container'
 const Checkout = () => {
+  const [isEmoneyPaymentMethod, setIsEmoneyPaymentMethod]=useState(true)
   const navigate = useNavigate();
 
   const handleBackClick = () => {
     navigate(-1);
   };
+
+  const handlePaymentMethodeSelected=()=>setIsEmoneyPaymentMethod(prv => !prv)
 
   return (
     <Container className='bg-lightGray h-screen' >
@@ -57,15 +60,16 @@ const Checkout = () => {
         <div className="grid grid-cols-2 gap-3">
           <h5 className='text-paleBlack  font-bold text-xs row-span-2'>Payment Method</h5>
           
-          <div className='flex items-center py-4 rounded-lg px-2 border-lightGray border-[1px]'>
+          <div onClick={handlePaymentMethodeSelected} className='flex cursor-pointer items-center py-4 rounded-lg px-2 border-lightGray border-[1px]'>
           <div className='custom-radio'>
-            <span className='orange-circle bg-orange'></span>
+            <span className={`orange-circle ${!isEmoneyPaymentMethod ? 'hidden':"block"} bg-orange`}></span>
           </div>
           <h5 className='text-paleBlack  font-bold text-sm ml-3'>e-money</h5>
           </div>
-          <div className='flex items-center py-4 rounded-lg px-2 border-lightGray border-[1px]'>
+          {/* this compnenet need to be refactored */}
+          <div onClick={handlePaymentMethodeSelected} className='flex cursor-pointer items-center py-4 rounded-lg px-2 border-lightGray border-[1px]'>
           <div className='custom-radio'>
-          <span className='orange-circle hidden bg-orange'></span>
+          <span  className={`orange-circle ${isEmoneyPaymentMethod ? 'hidden':"block"} bg-orange`}></span>
           </div>
           <h5 className='text-paleBlack  font-bold text-sm  ml-3'>Cash on Delivery</h5>
           </div>
