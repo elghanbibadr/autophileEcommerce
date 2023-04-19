@@ -54,8 +54,15 @@ const Checkout = () => {
       </div>
         {/*  shipping info grid*/}
         <h6 className='text-orange text-sm uppercase mt-9 mb-5  font-bold'>PAYMENT DETAILS</h6>
-        <label>Payment Method</label>
-        <input type='checkbox' />
+        <h5 className='text-paleBlack  font-bold text-xs'>Payment Method</h5>
+        <div className='flex border-lightGray border-[1px]'>
+         <input className='custom-radio '  type="radio" id="myCheckbox" name="myRadio" /> 
+        <label for="myRadio" >e-money</label>
+        </div>
+        <div className='flex  border-lightGray border-[1px] '>
+         <input className='custom-radio '   type="radio" id="myCheckbox" name="myRadio" /> 
+        <label for="myRadio"> Cash on Delivery</label>
+        </div>
      </div>
     </Container>
   )

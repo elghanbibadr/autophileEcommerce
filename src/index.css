@@ -56,6 +56,7 @@ input[type=number]::-webkit-outer-spin-button {
     input{
       @apply border-lightGray border-[1px] w-full tracking-wider font-medium mt-2 text-black px-3 text-sm py-4  rounded-lg outline-0 
     }
+
     label{
       @apply text-paleBlack block font-bold text-xs
     }
@@ -87,3 +88,21 @@ li{
      background-size: cover;
          
   }
+  
+  
+  input[type=radio] {
+  display: none;
+}
+
+.custom-radio {
+  display:block;
+  width: 16px;
+  height: 196px;
+  border-radius: 50%;
+  background-color: red;
+  border: 2px solid red;
+}
+
+input[type=radio]:checked + .custom-radio {
+  background-color: red;
+}
