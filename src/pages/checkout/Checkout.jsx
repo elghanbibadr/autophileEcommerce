@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useNavigate} from 'react-router-dom';
+import cashOnDelliveryIcon from "../../../public/images/checkout/icon-cash-on-delivery.svg"
 import Container from '../../componenet/UI/Container'
 const Checkout = () => {
   const [isEmoneyPaymentMethod, setIsEmoneyPaymentMethod]=useState(true)
@@ -74,7 +75,22 @@ const Checkout = () => {
           <h5 className='text-paleBlack  font-bold text-sm  ml-3'>Cash on Delivery</h5>
           </div>
         </div>
-     </div>
+        {/*  */}
+       { isEmoneyPaymentMethod && <div className="grid grid-cols-2 gap-3  mt-8 items-center">
+          <div >
+            <label >e-Money Number</label>
+            <input type='number' placeholder='238914892' />
+          </div>
+          <div>
+            <label >e-Money PIN</label>
+            <input type='number' placeholder='6891' />
+          </div>
+               </div>}
+               {!isEmoneyPaymentMethod && <div className='mt-8 flex'>
+                <img className='self-start mr-5' src={cashOnDelliveryIcon} alt='cash on delivery icon' />
+                <p className='text-paleBlack'>The ‘Cash on Delivery’ option enables you to pay in cash when our delivery courier arrives at your residence. Just make sure your address is correct so that your order will not be cancelled.</p>
+               </div>}
+        </div>
     </Container>
   )
 }
