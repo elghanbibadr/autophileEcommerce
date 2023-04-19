@@ -46,6 +46,12 @@ body{
     .flex-col-between{
       @apply flex  flex-col justify-between items-center
     }
+    input{
+      @apply border-lightGray mt-2 text-black px-3 text-sm py-4  rounded-lg outline-0 border-2
+    }
+    label{
+      @apply text-black block font-semibold text-sm
+    }
   }
 
   img{
