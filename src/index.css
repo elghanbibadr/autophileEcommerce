@@ -88,21 +88,22 @@ li{
      background-size: cover;
          
   }
-  
-  
-  input[type=radio] {
-  display: none;
-}
 
-.custom-radio {
-  display:block;
-  width: 16px;
-  height: 196px;
-  border-radius: 50%;
-  background-color: red;
-  border: 2px solid red;
-}
-
-input[type=radio]:checked + .custom-radio {
-  background-color: red;
-}
+  .custom-radio{
+    height: 20px;
+    width: 20px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .orange-circle{
+    height: 12px ;
+    width: 12px;
+    
+    border-radius: 50%;
+  }
+  
