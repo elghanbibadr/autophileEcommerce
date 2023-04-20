@@ -5,6 +5,8 @@ import cashOnDelliveryIcon from "../../../public/images/checkout/icon-cash-on-de
 import Container from '../../componenet/UI/Container'
 import { AppContext } from '../../store/AppContext';
 import Btn from '../../componenet/UI/Btn';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+
 const Checkout = () => {
   const {addedItemsToCard}=useContext(AppContext)
   const total=addedItemsToCard.reduce((sum, item) => {
@@ -28,9 +30,8 @@ const Checkout = () => {
        <div className='lg:grid lg:grid-cols-3 lg:gap-6'>
          <div className='bg-white p-8 rounded-md my-8  lg:col-span-2'>
           <h3 className='text-black mb-8 font-bold'>CHECKOUT</h3>
-          <form>
             <h6 className='text-orange text-sm uppercase mb-8  font-semibold'>billing details</h6>
-              {/* billing details grid*/}
+            <form />   
             <div className="grid grid-cols-2 gap-3">
               <div  >
                 <label >Name</label>
@@ -46,7 +47,7 @@ const Checkout = () => {
               </div>
             </div>
             <h6 className='text-orange text-sm uppercase mt-9 mb-5  font-bold'>shipping info</h6>
-              {/*  shipping info grid*/}
+             
             <div className="grid grid-cols-2 gap-3">
               <div className='col-span-2 mb-2 ' >
                 <label >Your Adress</label>
@@ -65,7 +66,7 @@ const Checkout = () => {
                 <input type='text' placeholder='United States' />
               </div>
             </div>
-              {/*  shipping info grid*/}
+           
               <h6 className='text-orange text-sm uppercase mt-9 mb-5  font-bold'>PAYMENT DETAILS</h6>
               <div className="grid grid-cols-2 gap-3">
                 <h5 className='text-paleBlack  font-bold text-xs row-span-2'>Payment Method</h5>
@@ -98,7 +99,8 @@ const Checkout = () => {
                       <img className='self-start mr-5' src={cashOnDelliveryIcon} alt='cash on delivery icon' />
                       <p className='text-paleBlack'>The ‘Cash on Delivery’ option enables you to pay in cash when our delivery courier arrives at your residence. Just make sure your address is correct so that your order will not be cancelled.</p>
                      </div>}
-          </form>
+           <form />
+       
               </div>
             {/* checkout summary */}
       
