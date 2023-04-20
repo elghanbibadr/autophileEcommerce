@@ -8,17 +8,71 @@ import Btn from '../../componenet/UI/Btn';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 const Checkout = () => {
+ 
   const {addedItemsToCard}=useContext(AppContext)
   const total=addedItemsToCard.reduce((sum, item) => {
     return sum +  item.quantity* Number(item.price);
   }, 0);
+  const [userName, setUserName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone ,setPhone] = useState('');
+  const [city, setCity] = useState('');
+  const [country, setCountry] = useState('');
+  const [address, setAddress] = useState('');
+  const [zipCode, setZipCode] = useState('');
+  const [emoneypin, setEmoneyPin] = useState('');
+  const [emoneyNumber, setEmoneyNumber] = useState('');
+  const [userNameError, setUserNameError] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [phoneNumberError, setPhoneNumberError] = useState('');
+ const [formIsValid,setFormIsValid]=useState(false);
+
+
+  const handleUserNameChange=(e)=>setUserName(e.target.value);
+  const handleEmailChange=(e)=>setEmail(e.target.value);
+  const handlePhoneChange=(e)=>setPhone(e.target.value);
+  const handleCityChange=(e)=>setCity(e.target.value);
+  const handleCountryChange=(e)=>setCountry(e.target.value);
+  const handleAddressChange=(e)=>setAddress(e.target.value);
+  const handleZipCodeChange=(e)=>setAddress(e.target.value);
+  const handleEmoneyPinChange=(e)=>setEmoneyPin(e.target.value);
+  const handleEmoneyNumberChange=(e)=>setEmoneyNumber(e.target.value);
   
+ const handleFormSubmited=(e)=>{
+     e.preventDefault();
+     console.log(city,userName,email)
+     validate();
+     if(userName && email &&  phone && !isNaN(phone))   setFormIsValid(true)
+     
+ }
+
+ const validate = () => {
+   if (!userName || !city) {
+     setUserNameError('Field cannot be empty');
+   } else {
+     setUserNameError('');
+   }
+   if (!email) {
+     setEmailError('Field cannot be empty');
+   } else {
+     setEmailError('');
+   }
+   if (!phone || !zipCode || emoneyNumber || emoneypin ) {
+     setPhoneNumberError('Field cannot be empty');
+   }
+    else {
+     setPhoneNumberError('');
+   }
+ }
+
+
   const [isEmoneyPaymentMethod, setIsEmoneyPaymentMethod]=useState(true)
   const navigate = useNavigate();
 
   const handleBackClick = () => {
     navigate(-1);
   };
+
 
   const handlePaymentMethodeSelected=()=>setIsEmoneyPaymentMethod(prv => !prv)
 
@@ -35,15 +89,20 @@ const Checkout = () => {
             <div className="grid grid-cols-2 gap-3">
               <div  >
                 <label >Name</label>
-                <input type='text' placeholder='Alexei Ward' />
+                <input value={userName} onChange={handleUserNameChange} type='text' placeholder='Alexei Ward' />
+                {!userName && <span className="error-msg text-[red]">{userNameError}</span>}
+
               </div>
               <div  >
                 <label >Email Address</label>
-                <input type='email' placeholder='alexei@mail.com' />
+                <input value={email} onChange={handleEmailChange} type='email' placeholder='alexei@mail.com' />
+                {!email && <span className="error-msg text-[red]">{emailError}</span>}
+
               </div>
               <div  >
                 <label >Phone Number</label>
-                <input type='text' placeholder='+1 202-555-0136' />
+                <input value={phone} onChange={handlePhoneChange} type='text' placeholder='+1 202-555-0136' />
+                {!phone && <span className="error-msg text-[red]">{phoneNumberError}</span>}
               </div>
             </div>
             <h6 className='text-orange text-sm uppercase mt-9 mb-5  font-bold'>shipping info</h6>
@@ -51,19 +110,26 @@ const Checkout = () => {
             <div className="grid grid-cols-2 gap-3">
               <div className='col-span-2 mb-2 ' >
                 <label >Your Adress</label>
-                <input type='text' placeholder='1137 Williams Avenue' />
+                <input  value={address} onChange={handleAddressChange}  type='text' placeholder='1137 Williams Avenue' />
+                {!address && <span className="error-msg text-[red]">{userNameError}</span>}
+
               </div>
               <div>
                 <label>ZIP code</label>
-                <input type='number' placeholder='10001' />
+                <input  value={zipCode} onChange={handleZipCodeChange}  type='number' placeholder='10001' />
+                {!zipCode && <span className="error-msg text-[red]">{phoneNumberError}</span>}
+
               </div>
               <div>
                 <label >City</label>
-                <input type='text' placeholder='New York' />
+                <input  value={city} onChange={handleCityChange}  type='text' placeholder='New York' />
+                {!city && <span className="error-msg text-[red]">{userNameError}</span>}
+
               </div>
               <div>
                 <label >Country</label>
-                <input type='text' placeholder='United States' />
+                <input value={country} onChange={handleCountryChange}  type='text' placeholder='United States' />
+                {!country && <span className="error-msg text-[red]">{userNameError}</span>}
               </div>
             </div>
            
@@ -88,11 +154,13 @@ const Checkout = () => {
              { isEmoneyPaymentMethod && <div className="grid grid-cols-2 gap-3  mt-8 items-center">
                 <div >
                   <label >e-Money Number</label>
-                  <input type='number' placeholder='238914892' />
+                  <input value={emoneyNumber} onChange={handleEmoneyNumberChange} type='number' placeholder='238914892' />
+                  {!emoneyNumber && <span className="error-msg text-[red]">{phoneNumberError}</span>}
                 </div>
                 <div>
                   <label >e-Money PIN</label>
-                  <input type='number' placeholder='6891' />
+                  <input value={emoneypin} onChange={handleEmoneyPinChange}  type='number' placeholder='6891' />
+                  {!emoneypin && <span className="error-msg text-[red]">{phoneNumberError}</span>}
                 </div>
                      </div>}
                      {!isEmoneyPaymentMethod && <div className='mt-8 flex'>
@@ -139,7 +207,9 @@ const Checkout = () => {
               <p className='text-paleBlack '>GRAND TOTAL</p>
               <h4 className='text-orange font-bold '>$ {total + total *0.01+50 + total*0.001}</h4>
             </div>
-                    <Btn  className={`${addedItemsToCard.length===0 ? "  bg-opacity-40 cursor-not-allowed":"bg-opacity-100 "} bg-orange disabled text-white w-full mt-6`}    text="CONTINUE & PAY"/>
+                    <div onClick={handleFormSubmited}>
+                      <Btn  className={`${addedItemsToCard.length===0 ? "  bg-opacity-40 cursor-not-allowed":"bg-opacity-100 "} bg-orange disabled text-white w-full mt-6`}    text="CONTINUE & PAY"/>
+                    </div>
               </div>
        </div>
       </Container>
