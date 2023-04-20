@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import Btn from './Btn'
 import { AppContext } from '../../store/AppContext'
-const ItemsInTheCard = (props) => {
+const ItemsInTheCard = () => {
   const {addedItemsToCard,itemInCardNumber,setBackdropIsOpen,setAddedItemsToCard}=useContext(AppContext)
   const total=addedItemsToCard.reduce((sum, item) => {
     return sum +  item.quantity* Number(item.price);
@@ -40,6 +40,7 @@ const ItemsInTheCard = (props) => {
           <p className='text-paleBlack font-semibold'>TOTAL</p>
           <h4 className='text-black'>${total}</h4>
         </div>
+      
         <Link to="/checkout" onClick={handleCheckoutBtnClicked}>
           <Btn className='bg-orange w-full mt-10 text-white' text="CHECKOUT"/>
         </Link>

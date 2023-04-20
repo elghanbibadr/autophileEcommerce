@@ -1,9 +1,16 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useNavigate} from 'react-router-dom';
 import cashOnDelliveryIcon from "../../../public/images/checkout/icon-cash-on-delivery.svg"
 import Container from '../../componenet/UI/Container'
+import { AppContext } from '../../store/AppContext';
+import Btn from '../../componenet/UI/Btn';
 const Checkout = () => {
+  const {addedItemsToCard}=useContext(AppContext)
+  const total=addedItemsToCard.reduce((sum, item) => {
+    return sum +  item.quantity* Number(item.price);
+  }, 0);
+  
   const [isEmoneyPaymentMethod, setIsEmoneyPaymentMethod]=useState(true)
   const navigate = useNavigate();
 
@@ -14,10 +21,10 @@ const Checkout = () => {
   const handlePaymentMethodeSelected=()=>setIsEmoneyPaymentMethod(prv => !prv)
 
   return (
-    <Container className='bg-lightGray h-screen' >
-     <Link onClick={handleBackClick} className='text-lightBlack  font-semibold'>Go Back</Link>
+    <Container className='bg-lightGray ' >
+     <Link onClick={handleBackClick} className='text-lightBlack  '>Go Back</Link>
     {/* checkkout info */}
-     <div className='bg-white h-screen p-8 rounded-md mt-8 '>
+     <div className='bg-white p-8 rounded-md my-8 '>
       <h3 className='text-black mb-8 font-bold'>CHECKOUT</h3>
       <h6 className='text-orange text-sm uppercase mb-8  font-semibold'>billing details</h6>
         {/* billing details grid*/}
@@ -91,6 +98,45 @@ const Checkout = () => {
                 <p className='text-paleBlack'>The ‘Cash on Delivery’ option enables you to pay in cash when our delivery courier arrives at your residence. Just make sure your address is correct so that your order will not be cancelled.</p>
                </div>}
         </div>
+        {/* checkout summary */}
+      
+          <div className='bg-white  p-8 rounded-md mt-8'>
+            <h3 className='text-black mb-8 font-bold'>SUMMARY</h3>
+                 {addedItemsToCard.map(({cartImage,id,quantity,price,shortName})=>{
+            
+            return  <div key={id} className='flex justify-between items-center'>
+               <div className='flex items-center  my-6'>
+                 <img className='h-[70px] rounded-md mr-3' src={cartImage} />
+                 <div >
+                   <h6 className='text-black font-semibold'>{shortName}</h6>
+                   <p className='text-paleBlack font-semibold'>${price}</p>
+                 </div>
+               </div>
+            
+                 <div className='bg-lightGray  flex justify-between items-center px-4 py-2 '>
+                 <span className='text-black font-semibold text-xs'>x {quantity}</span>
+             </div>
+             </div>
+                   })}
+                    <div className='flex justify-between'>
+          <p className='text-paleBlack  '>TOTAL</p>
+          <h4 className='text-black font-bold'>$ {total}</h4>
+        </div>
+        <div className='flex justify-between   my-2 '>
+          <p className='text-paleBlack '>SHIPPING</p>
+          <h4 className='text-black font-bold '>$ {50 +  total*0.001}</h4>
+        </div>
+        <div className='flex justify-between'>
+          <p className='text-paleBlack '>VAT (INCLUDED)</p>
+          <h4 className='text-black font-bold'>$ {total *0.01}</h4>
+        </div>
+        <div className='flex justify-between mt-6'>
+          <p className='text-paleBlack '>GRAND TOTAL</p>
+          <h4 className='text-orange font-bold '>$ {total + total *0.01+50 + total*0.001}</h4>
+        </div>
+
+                <Btn  className='bg-orange text-white w-full  mt-6'   text="CONTINUE & PAY"/>
+          </div>
     </Container>
   )
 }
