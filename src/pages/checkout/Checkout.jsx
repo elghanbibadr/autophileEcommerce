@@ -28,77 +28,78 @@ const Checkout = () => {
        <div className='lg:grid lg:grid-cols-3 lg:gap-6'>
          <div className='bg-white p-8 rounded-md my-8  lg:col-span-2'>
           <h3 className='text-black mb-8 font-bold'>CHECKOUT</h3>
-          <h6 className='text-orange text-sm uppercase mb-8  font-semibold'>billing details</h6>
-            {/* billing details grid*/}
-          <div className="grid grid-cols-2 gap-3">
-            <div  >
-              <label >Name</label>
-              <input type='text' placeholder='Alexei Ward' />
-            </div>
-            <div  >
-              <label >Email Address</label>
-              <input type='email' placeholder='alexei@mail.com' />
-            </div>
-            <div  >
-              <label >Phone Number</label>
-              <input type='text' placeholder='+1 202-555-0136' />
-            </div>
-          </div>
-          <h6 className='text-orange text-sm uppercase mt-9 mb-5  font-bold'>shipping info</h6>
-            {/*  shipping info grid*/}
-          <div className="grid grid-cols-2 gap-3">
-            <div className='col-span-2 mb-2 ' >
-              <label >Your Adress</label>
-              <input type='text' placeholder='1137 Williams Avenue' />
-            </div>
-            <div>
-              <label>ZIP code</label>
-              <input type='number' placeholder='10001' />
-            </div>
-            <div>
-              <label >City</label>
-              <input type='text' placeholder='New York' />
-            </div>
-            <div>
-              <label >Country</label>
-              <input type='text' placeholder='United States' />
-            </div>
-          </div>
-            {/*  shipping info grid*/}
-            <h6 className='text-orange text-sm uppercase mt-9 mb-5  font-bold'>PAYMENT DETAILS</h6>
+          <form>
+            <h6 className='text-orange text-sm uppercase mb-8  font-semibold'>billing details</h6>
+              {/* billing details grid*/}
             <div className="grid grid-cols-2 gap-3">
-              <h5 className='text-paleBlack  font-bold text-xs row-span-2'>Payment Method</h5>
-      
-              <div onClick={handlePaymentMethodeSelected} className='flex cursor-pointer items-center py-4 rounded-lg px-2 border-lightGray border-[1px]'>
-              <div className='custom-radio'>
-                <span className={`orange-circle ${!isEmoneyPaymentMethod ? 'hidden':"block"} bg-orange`}></span>
+              <div  >
+                <label >Name</label>
+                <input type='text' placeholder='Alexei Ward' />
               </div>
-              <h5 className='text-paleBlack  font-bold text-sm ml-3'>e-money</h5>
+              <div  >
+                <label >Email Address</label>
+                <input type='email' placeholder='alexei@mail.com' />
               </div>
-              {/* this compnenet need to be refactored */}
-              <div onClick={handlePaymentMethodeSelected} className='flex cursor-pointer items-center py-4 rounded-lg px-2 border-lightGray border-[1px]'>
-              <div className='custom-radio'>
-              <span  className={`orange-circle ${isEmoneyPaymentMethod ? 'hidden':"block"} bg-orange`}></span>
-              </div>
-              <h5 className='text-paleBlack  font-bold text-sm  ml-3'>Cash on Delivery</h5>
+              <div  >
+                <label >Phone Number</label>
+                <input type='text' placeholder='+1 202-555-0136' />
               </div>
             </div>
-            {/*  */}
-           { isEmoneyPaymentMethod && <div className="grid grid-cols-2 gap-3  mt-8 items-center">
-              <div >
-                <label >e-Money Number</label>
-                <input type='number' placeholder='238914892' />
+            <h6 className='text-orange text-sm uppercase mt-9 mb-5  font-bold'>shipping info</h6>
+              {/*  shipping info grid*/}
+            <div className="grid grid-cols-2 gap-3">
+              <div className='col-span-2 mb-2 ' >
+                <label >Your Adress</label>
+                <input type='text' placeholder='1137 Williams Avenue' />
               </div>
               <div>
-                <label >e-Money PIN</label>
-                <input type='number' placeholder='6891' />
+                <label>ZIP code</label>
+                <input type='number' placeholder='10001' />
               </div>
-                   </div>}
-                   {!isEmoneyPaymentMethod && <div className='mt-8 flex'>
-                    <img className='self-start mr-5' src={cashOnDelliveryIcon} alt='cash on delivery icon' />
-                    <p className='text-paleBlack'>The ‘Cash on Delivery’ option enables you to pay in cash when our delivery courier arrives at your residence. Just make sure your address is correct so that your order will not be cancelled.</p>
-                   </div>}
+              <div>
+                <label >City</label>
+                <input type='text' placeholder='New York' />
+              </div>
+              <div>
+                <label >Country</label>
+                <input type='text' placeholder='United States' />
+              </div>
             </div>
+              {/*  shipping info grid*/}
+              <h6 className='text-orange text-sm uppercase mt-9 mb-5  font-bold'>PAYMENT DETAILS</h6>
+              <div className="grid grid-cols-2 gap-3">
+                <h5 className='text-paleBlack  font-bold text-xs row-span-2'>Payment Method</h5>
+                <div onClick={handlePaymentMethodeSelected} className='flex cursor-pointer items-center py-4 rounded-lg px-2 border-lightGray border-[1px]'>
+                <div className='custom-radio'>
+                  <span className={`orange-circle ${!isEmoneyPaymentMethod ? 'hidden':"block"} bg-orange`}></span>
+                </div>
+                <h5 className='text-paleBlack  font-bold text-sm ml-3'>e-money</h5>
+                </div>
+                {/* this compnenet need to be refactored */}
+                <div onClick={handlePaymentMethodeSelected} className='flex cursor-pointer items-center py-4 rounded-lg px-2 border-lightGray border-[1px]'>
+                <div className='custom-radio'>
+                <span  className={`orange-circle ${isEmoneyPaymentMethod ? 'hidden':"block"} bg-orange`}></span>
+                </div>
+                <h5 className='text-paleBlack  font-bold text-sm  ml-3'>Cash on Delivery</h5>
+                </div>
+              </div>
+              {/*  */}
+             { isEmoneyPaymentMethod && <div className="grid grid-cols-2 gap-3  mt-8 items-center">
+                <div >
+                  <label >e-Money Number</label>
+                  <input type='number' placeholder='238914892' />
+                </div>
+                <div>
+                  <label >e-Money PIN</label>
+                  <input type='number' placeholder='6891' />
+                </div>
+                     </div>}
+                     {!isEmoneyPaymentMethod && <div className='mt-8 flex'>
+                      <img className='self-start mr-5' src={cashOnDelliveryIcon} alt='cash on delivery icon' />
+                      <p className='text-paleBlack'>The ‘Cash on Delivery’ option enables you to pay in cash when our delivery courier arrives at your residence. Just make sure your address is correct so that your order will not be cancelled.</p>
+                     </div>}
+          </form>
+              </div>
             {/* checkout summary */}
       
               <div className='bg-white  p-8 rounded-md mt-8 h-fit'>
