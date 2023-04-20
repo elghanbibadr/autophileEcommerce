@@ -102,7 +102,8 @@ const Checkout = () => {
       
           <div className='bg-white  p-8 rounded-md mt-8'>
             <h3 className='text-black mb-8 font-bold'>SUMMARY</h3>
-                 {addedItemsToCard.map(({cartImage,id,quantity,price,shortName})=>{
+            { addedItemsToCard.length===0 &&  <p className='text-paleBlack font-bold text-center mb-6'>No Items in cart</p>}
+                 { addedItemsToCard.length!==0 && addedItemsToCard.map(({cartImage,id,quantity,price,shortName})=>{
             
             return  <div key={id} className='flex justify-between items-center'>
                <div className='flex items-center  my-6'>
@@ -134,8 +135,7 @@ const Checkout = () => {
           <p className='text-paleBlack '>GRAND TOTAL</p>
           <h4 className='text-orange font-bold '>$ {total + total *0.01+50 + total*0.001}</h4>
         </div>
-
-                <Btn  className='bg-orange text-white w-full  mt-6'   text="CONTINUE & PAY"/>
+                <Btn  className={`${addedItemsToCard.length===0 ? "  bg-opacity-40 cursor-not-allowed":"bg-opacity-100 "} bg-orange disabled text-white w-full mt-6`}    text="CONTINUE & PAY"/>
           </div>
     </Container>
   )
