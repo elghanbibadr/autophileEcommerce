@@ -65,7 +65,10 @@ const Checkout = () => {
    }
  }
 
-
+ const vatPrice=(total *0.01).toFixed(2)
+ const totalPrice = (total + total *0.01  + 50 + total*0.001).toFixed(2)
+ const shippingCost=(50 +  total*0.001).toFixed(2)
+ 
   const [isEmoneyPaymentMethod, setIsEmoneyPaymentMethod]=useState(true)
   const navigate = useNavigate();
 
@@ -197,15 +200,15 @@ const Checkout = () => {
             </div>
             <div className='flex justify-between   my-2 '>
               <p className='text-paleBlack '>SHIPPING</p>
-              <h4 className='text-black font-bold '>$ {50 +  total*0.001}</h4>
+              <h4 className='text-black font-bold '>$ {shippingCost}</h4>
             </div>
             <div className='flex justify-between'>
               <p className='text-paleBlack '>VAT (INCLUDED)</p>
-              <h4 className='text-black font-bold'>$ {total *0.01}</h4>
+              <h4 className='text-black font-bold'>${vatPrice} </h4>
             </div>
             <div className='flex justify-between mt-6'>
               <p className='text-paleBlack '>GRAND TOTAL</p>
-              <h4 className='text-orange font-bold '>$ {total + total *0.01+50 + total*0.001}</h4>
+              <h4 className='text-orange font-bold '>${totalPrice}</h4>
             </div>
                     <div onClick={handleFormSubmited}>
                       <Btn  className={`${addedItemsToCard.length===0 ? "  bg-opacity-40 cursor-not-allowed":"bg-opacity-100 "} bg-orange disabled text-white w-full mt-6`}    text="CONTINUE & PAY"/>
