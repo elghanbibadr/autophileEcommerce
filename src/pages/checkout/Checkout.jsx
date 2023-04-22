@@ -40,7 +40,6 @@ const Checkout = () => {
   
  const handleFormSubmited=(e)=>{
      e.preventDefault();
-     console.log(city,userName,email)
      validate();
      if(userName && email &&  phone && country && city && zipCode && address ) {
       if (isEmoneyPaymentMethod){
@@ -62,7 +61,7 @@ const Checkout = () => {
  const validate = () => {
    if (!userName || !city) {
      setUserNameError('Field cannot be empty');
-   } else setUserName('')
+   } else setUserNameError('')
    if (!email) {
     setEmailError('Field cannot be empty');
   }
@@ -240,7 +239,7 @@ const Checkout = () => {
               <p className='text-paleBlack '>GRAND TOTAL</p>
               <h4 className='text-orange font-bold '>${totalPrice}</h4>
             </div>
-                    <div onClick={handleFormSubmited}>
+            <div onClick={handleFormSubmited}>
                       <Btn  className={`${addedItemsToCard.length===0 ? "  bg-opacity-40 cursor-not-allowed":"bg-opacity-100 "} bg-orange disabled text-white w-full mt-6`}    text="CONTINUE & PAY"/>
                     </div>
               </div>
