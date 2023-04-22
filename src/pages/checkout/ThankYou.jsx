@@ -6,7 +6,7 @@ import Btn from '../../componenet/UI/Btn'
 import checkMark from "../../../public/images/shared/desktop/icon-check-mark.svg"
 import { AppContext } from '../../store/AppContext'
 const ThankYou = (props) => {
-    const {backdropIsOpen,setBackdropIsOpen,addedItemsToCard,setAddedItemsToCard,SetItemInCardNumber} = useContext(AppContext)
+    const {setBackdropIsOpen,addedItemsToCard,setAddedItemsToCard,SetItemInCardNumber} = useContext(AppContext)
 const handleOnBackHomeClicked=()=>{
   setBackdropIsOpen(false)
   setAddedItemsToCard([])

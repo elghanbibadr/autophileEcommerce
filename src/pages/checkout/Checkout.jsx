@@ -25,6 +25,7 @@ const Checkout = () => {
   const [emailError, setEmailError] = useState('');
   const [phoneNumberError, setPhoneNumberError] = useState('');
  const [formIsValid,setFormIsValid]=useState(false);
+  const [formSubmited,setFormSubmited]=useState(false);
 
 
   const handleUserNameChange=(e)=>setUserName(e.target.value);
@@ -40,6 +41,8 @@ const Checkout = () => {
   
  const handleFormSubmited=(e)=>{
      e.preventDefault();
+     if (addedItemsToCard.length===0)return;
+    setFormSubmited(true)
      validate();
      if(userName && email &&  phone && country && city && zipCode && address ) {
       if (isEmoneyPaymentMethod){
@@ -57,6 +60,7 @@ const Checkout = () => {
      
      
  }
+//  const borderRedToStringInputs: 
 
  const validate = () => {
    if (!userName || !city || !country ) {
@@ -106,7 +110,7 @@ const Checkout = () => {
                   <label >Name</label>
                   {!userName && <span className="error-msg text-[red]">{userNameError}</span>}
                 </div>
-                <input   value={userName} onChange={handleUserNameChange} type='text' placeholder='Alexei Ward' />
+                <input className={`${(formSubmited && !userName) ? "border-[red]":""}`}  value={userName} onChange={handleUserNameChange} type='text' placeholder='Alexei Ward' />
 
               </div>
               <div  >
@@ -114,7 +118,7 @@ const Checkout = () => {
                   <label >Email Address</label>
                   {!email && <span className="error-msg text-[red]">{emailError}</span>}
                 </div>
-                <input value={email} onChange={handleEmailChange} type='email' placeholder='alexei@mail.com' />
+                <input className={`${(formSubmited && !email) ? "border-[red]":""}`}  value={email} onChange={handleEmailChange} type='email' placeholder='alexei@mail.com' />
 
               </div>
               <div  >
@@ -122,7 +126,7 @@ const Checkout = () => {
                   <label >Phone Number</label>
                   {!phone && <span className="error-msg text-[red]">{phoneNumberError}</span>}
                 </div>
-                <input value={phone} onChange={handlePhoneChange} type='text' placeholder='+1 202-555-0136' />
+                <input className={`${(formSubmited && !phone) ? "border-[red]":""}`}  value={phone} onChange={handlePhoneChange} type='text' placeholder='+1 202-555-0136' />
               </div>
             </div>
             <h6 className='text-orange text-sm uppercase mt-9 mb-5  font-bold'>shipping info</h6>
@@ -133,7 +137,7 @@ const Checkout = () => {
                   <label >Your Adress</label>
                   {!address && <span className="error-msg text-[red]">{userNameError}</span>}
                 </div>
-                <input  value={address} onChange={handleAddressChange}  type='text' placeholder='1137 Williams Avenue' />
+                <input className={`${(formSubmited && !address) ? "border-[red]":""}`}   value={address} onChange={handleAddressChange}  type='text' placeholder='1137 Williams Avenue' />
 
               </div>
               <div>
@@ -141,7 +145,7 @@ const Checkout = () => {
                   <label>ZIP code</label>
                   {!zipCode && <span className="error-msg text-[red]">{phoneNumberError}</span>}
                 </div>
-                <input  value={zipCode} onChange={handleZipCodeChange}  type='number' placeholder='10001' />
+                <input className={`${(formSubmited && !zipCode) ? "border-[red]":""}`}   value={zipCode} onChange={handleZipCodeChange}  type='number' placeholder='10001' />
 
               </div>
               <div>
@@ -149,7 +153,7 @@ const Checkout = () => {
                   <label >City</label>
                   {!city && <span className="error-msg text-[red]">{userNameError}</span>}
                 </div>
-                <input  value={city} onChange={handleCityChange}  type='text' placeholder='New York' />
+                <input className={`${(formSubmited && !city) ? "border-[red]":""}`}    value={city} onChange={handleCityChange}  type='text' placeholder='New York' />
 
               </div>
               <div>
@@ -157,7 +161,7 @@ const Checkout = () => {
                   <label >Country</label>
                   {!country && <span className="error-msg text-[red]">{userNameError}</span>}
                 </div>
-                <input value={country} onChange={handleCountryChange}  type='text' placeholder='United States' />
+                <input className={`${(formSubmited && !country) ? "border-[red]":""}`}   value={country} onChange={handleCountryChange}  type='text' placeholder='United States' />
               </div>
             </div>
            
@@ -185,14 +189,14 @@ const Checkout = () => {
                     <label >e-Money Number</label>
                     {!emoneyNumber && <span className="error-msg text-[red]">{phoneNumberError}</span>}
                   </div>
-                  <input value={emoneyNumber} onChange={handleEmoneyNumberChange} type='number' placeholder='238914892' />
+                  <input className={`${(formSubmited && !emoneyNumber) ? "border-[red]":""}`}  value={emoneyNumber} onChange={handleEmoneyNumberChange} type='number' placeholder='238914892' />
                 </div>
                 <div>
                   <div className="flex justify-between">
                     <label >e-Money PIN</label>
                     {!emoneypin && <span className="error-msg text-[red]">{phoneNumberError}</span>}
                   </div>
-                  <input value={emoneypin} onChange={handleEmoneyPinChange}  type='number' placeholder='6891' />
+                  <input className={`${(formSubmited && !emoneypin) ? "border-[red]":""}`}  value={emoneypin} onChange={handleEmoneyPinChange}  type='number' placeholder='6891' />
                 </div>
                      </div>}
                      {!isEmoneyPaymentMethod && <div className='mt-8 flex'>
@@ -240,7 +244,7 @@ const Checkout = () => {
               <h4 className='text-orange font-bold '>${totalPrice}</h4>
             </div>
             <div onClick={handleFormSubmited}>
-                      <Btn  className={`${addedItemsToCard.length===0 ? "  bg-opacity-40 cursor-not-allowed":"bg-opacity-100 "} bg-orange disabled text-white w-full mt-6`}    text="CONTINUE & PAY"/>
+                      <Btn  className={`${addedItemsToCard.length===0 ? "  bg-opacity-40 cursor-not-allowed":"bg-opacity-100 "} bg-orange cursor-not-allowed  text-white w-full mt-6`}    text="CONTINUE & PAY"/>
                     </div>
               </div>
        </div>
