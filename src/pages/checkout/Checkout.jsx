@@ -5,11 +5,10 @@ import cashOnDelliveryIcon from "../../../public/images/checkout/icon-cash-on-de
 import Container from '../../componenet/UI/Container'
 import { AppContext } from '../../store/AppContext';
 import Btn from '../../componenet/UI/Btn';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-
+import ThankYou from './ThankYou';
 const Checkout = () => {
  
-  const {addedItemsToCard}=useContext(AppContext)
+  const {addedItemsToCard,setAddedItemsToCard}=useContext(AppContext)
   const total=addedItemsToCard.reduce((sum, item) => {
     return sum +  item.quantity* Number(item.price);
   }, 0);
@@ -34,15 +33,28 @@ const Checkout = () => {
   const handleCityChange=(e)=>setCity(e.target.value);
   const handleCountryChange=(e)=>setCountry(e.target.value);
   const handleAddressChange=(e)=>setAddress(e.target.value);
-  const handleZipCodeChange=(e)=>setAddress(e.target.value);
+  const handleZipCodeChange=(e)=>setZipCode(e.target.value);
   const handleEmoneyPinChange=(e)=>setEmoneyPin(e.target.value);
   const handleEmoneyNumberChange=(e)=>setEmoneyNumber(e.target.value);
+  const [isEmoneyPaymentMethod, setIsEmoneyPaymentMethod]=useState(true)
   
  const handleFormSubmited=(e)=>{
      e.preventDefault();
      console.log(city,userName,email)
      validate();
-     if(userName && email &&  phone && !isNaN(phone))   setFormIsValid(true)
+     if(userName && email &&  phone && country && city && zipCode && address ) {
+      if (isEmoneyPaymentMethod){
+        if (emoneypin && emoneyNumber){
+          setFormIsValid(true)
+          setAddedItemsToCard([])
+        }else setFormIsValid(false)
+      }else{
+        setFormIsValid(true)
+        setAddedItemsToCard([])
+      }
+     }
+     
+     
      
  }
 
@@ -53,11 +65,13 @@ const Checkout = () => {
      setUserNameError('');
    }
    if (!email) {
-     setEmailError('Field cannot be empty');
-   } else {
-     setEmailError('');
-   }
-   if (!phone || !zipCode || emoneyNumber || emoneypin ) {
+    setEmailError('Field cannot be empty');
+  }
+    else {
+      setEmailError('');
+    }
+   
+   if (!phone || !zipCode || !emoneyNumber || !emoneypin ) {
      setPhoneNumberError('Field cannot be empty');
    }
     else {
@@ -68,8 +82,7 @@ const Checkout = () => {
  const vatPrice=(total *0.01).toFixed(2)
  const totalPrice = (total + total *0.01  + 50 + total*0.001).toFixed(2)
  const shippingCost=(50 +  total*0.001).toFixed(2)
- 
-  const [isEmoneyPaymentMethod, setIsEmoneyPaymentMethod]=useState(true)
+
   const navigate = useNavigate();
 
   const handleBackClick = () => {
@@ -91,48 +104,62 @@ const Checkout = () => {
             <form />   
             <div className="grid grid-cols-2 gap-3">
               <div  >
-                <label >Name</label>
-                <input value={userName} onChange={handleUserNameChange} type='text' placeholder='Alexei Ward' />
-                {!userName && <span className="error-msg text-[red]">{userNameError}</span>}
+                <div className='flex justify-between'>
+                  <label >Name</label>
+                  {!userName && <span className="error-msg text-[red]">{userNameError}</span>}
+                </div>
+                <input   value={userName} onChange={handleUserNameChange} type='text' placeholder='Alexei Ward' />
 
               </div>
               <div  >
-                <label >Email Address</label>
+                <div className="flex justify-between">
+                  <label >Email Address</label>
+                  {!email && <span className="error-msg text-[red]">{emailError}</span>}
+                </div>
                 <input value={email} onChange={handleEmailChange} type='email' placeholder='alexei@mail.com' />
-                {!email && <span className="error-msg text-[red]">{emailError}</span>}
 
               </div>
               <div  >
-                <label >Phone Number</label>
+                <div className="flex justify-between">
+                  <label >Phone Number</label>
+                  {!phone && <span className="error-msg text-[red]">{phoneNumberError}</span>}
+                </div>
                 <input value={phone} onChange={handlePhoneChange} type='text' placeholder='+1 202-555-0136' />
-                {!phone && <span className="error-msg text-[red]">{phoneNumberError}</span>}
               </div>
             </div>
             <h6 className='text-orange text-sm uppercase mt-9 mb-5  font-bold'>shipping info</h6>
              
             <div className="grid grid-cols-2 gap-3">
               <div className='col-span-2 mb-2 ' >
-                <label >Your Adress</label>
+                <div className="flex justify-between">
+                  <label >Your Adress</label>
+                  {!address && <span className="error-msg text-[red]">{userNameError}</span>}
+                </div>
                 <input  value={address} onChange={handleAddressChange}  type='text' placeholder='1137 Williams Avenue' />
-                {!address && <span className="error-msg text-[red]">{userNameError}</span>}
 
               </div>
               <div>
-                <label>ZIP code</label>
+                <div className="flex justify-between">
+                  <label>ZIP code</label>
+                  {!zipCode && <span className="error-msg text-[red]">{phoneNumberError}</span>}
+                </div>
                 <input  value={zipCode} onChange={handleZipCodeChange}  type='number' placeholder='10001' />
-                {!zipCode && <span className="error-msg text-[red]">{phoneNumberError}</span>}
 
               </div>
               <div>
-                <label >City</label>
+                <div className="flex justify-between">
+                  <label >City</label>
+                  {!city && <span className="error-msg text-[red]">{userNameError}</span>}
+                </div>
                 <input  value={city} onChange={handleCityChange}  type='text' placeholder='New York' />
-                {!city && <span className="error-msg text-[red]">{userNameError}</span>}
 
               </div>
               <div>
-                <label >Country</label>
+                <div className="flex justify-between">
+                  <label >Country</label>
+                  {!country && <span className="error-msg text-[red]">{userNameError}</span>}
+                </div>
                 <input value={country} onChange={handleCountryChange}  type='text' placeholder='United States' />
-                {!country && <span className="error-msg text-[red]">{userNameError}</span>}
               </div>
             </div>
            
@@ -156,14 +183,18 @@ const Checkout = () => {
               {/*  */}
              { isEmoneyPaymentMethod && <div className="grid grid-cols-2 gap-3  mt-8 items-center">
                 <div >
-                  <label >e-Money Number</label>
+                  <div className="flex justify-between">
+                    <label >e-Money Number</label>
+                    {!emoneyNumber && <span className="error-msg text-[red]">{phoneNumberError}</span>}
+                  </div>
                   <input value={emoneyNumber} onChange={handleEmoneyNumberChange} type='number' placeholder='238914892' />
-                  {!emoneyNumber && <span className="error-msg text-[red]">{phoneNumberError}</span>}
                 </div>
                 <div>
-                  <label >e-Money PIN</label>
+                  <div className="flex justify-between">
+                    <label >e-Money PIN</label>
+                    {!emoneypin && <span className="error-msg text-[red]">{phoneNumberError}</span>}
+                  </div>
                   <input value={emoneypin} onChange={handleEmoneyPinChange}  type='number' placeholder='6891' />
-                  {!emoneypin && <span className="error-msg text-[red]">{phoneNumberError}</span>}
                 </div>
                      </div>}
                      {!isEmoneyPaymentMethod && <div className='mt-8 flex'>
@@ -216,6 +247,7 @@ const Checkout = () => {
               </div>
        </div>
       </Container>
+      {formIsValid && <ThankYou />}
     </div>
   )
 }

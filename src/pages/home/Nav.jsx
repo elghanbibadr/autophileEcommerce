@@ -10,7 +10,7 @@ import { useContext } from 'react'
 import { AppContext } from '../../store/AppContext'
 
 const Nav = (props) => {
-    const {backdropIsOpen,setBackdropIsOpen} = useContext(AppContext)
+ const {backdropIsOpen,setBackdropIsOpen} = useContext(AppContext)
 
     const {itemInCardNumber}=useContext(AppContext)
     const handleCardShopClicked=()=>{
@@ -38,6 +38,7 @@ const Nav = (props) => {
           {itemInCardNumber!==0 && <span className='absolute top-4  bg-orange h-[20px] text-xs font-bold w-[20px] rounded-full items-center justify-center inline-flex right-[18px] lg:right-[72px]'> {itemInCardNumber} </span>}
       </div>
       { backdropIsOpen &&  <Overlay setBackdropIsOpen={setBackdropIsOpen} >
+      <div className=" mt-10 "><Cart/></div>
        </Overlay>  }
       </nav>
 
