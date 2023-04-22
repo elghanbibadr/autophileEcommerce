@@ -59,7 +59,7 @@ const Checkout = () => {
  }
 
  const validate = () => {
-   if (!userName || !city) {
+   if (!userName || !city || !country ) {
      setUserNameError('Field cannot be empty');
    } else setUserNameError('')
    if (!email) {

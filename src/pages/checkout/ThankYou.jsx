@@ -6,16 +6,17 @@ import Btn from '../../componenet/UI/Btn'
 import checkMark from "../../../public/images/shared/desktop/icon-check-mark.svg"
 import { AppContext } from '../../store/AppContext'
 const ThankYou = (props) => {
-    const {backdropIsOpen,setBackdropIsOpen,addedItemsToCard} = useContext(AppContext)
+    const {backdropIsOpen,setBackdropIsOpen,addedItemsToCard,setAddedItemsToCard,SetItemInCardNumber} = useContext(AppContext)
 const handleOnBackHomeClicked=()=>{
   setBackdropIsOpen(false)
   setAddedItemsToCard([])
+  SetItemInCardNumber(0)
 }
 
 
   return (
     <Overlay setBackdropIsOpen={setBackdropIsOpen} >
-        <div className='bg-white h-[90%] self-center p-10 lg:p-16 text-black mx-auto'>
+        <div className='bg-white h-[70%] self-center p-10 lg:p-16 text-black mx-auto'>
           <img className='my-6' src={checkMark} alt='check mark icon' />
         <h3 className='text-black'>THANK YOU FOR YOUR ORDER</h3>
        <p className='text-paleBlack my-4'>You will receive an email confirmation shortly.</p>
