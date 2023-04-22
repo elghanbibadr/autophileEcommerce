@@ -8,7 +8,7 @@ import Btn from '../../componenet/UI/Btn';
 import ThankYou from './ThankYou';
 const Checkout = () => {
  
-  const {addedItemsToCard,setAddedItemsToCard}=useContext(AppContext)
+  const {addedItemsToCard,setAddedItemsToCard,backdropIsOpen,setBackdropIsOpen}=useContext(AppContext)
   const total=addedItemsToCard.reduce((sum, item) => {
     return sum +  item.quantity* Number(item.price);
   }, 0);
@@ -47,10 +47,13 @@ const Checkout = () => {
         if (emoneypin && emoneyNumber){
           setFormIsValid(true)
           setAddedItemsToCard([])
+          setBackdropIsOpen(true)
         }else setFormIsValid(false)
       }else{
         setFormIsValid(true)
         setAddedItemsToCard([])
+        setBackdropIsOpen(true)
+
       }
      }
      
@@ -61,9 +64,7 @@ const Checkout = () => {
  const validate = () => {
    if (!userName || !city) {
      setUserNameError('Field cannot be empty');
-   } else {
-     setUserNameError('');
-   }
+   } else setUserName('')
    if (!email) {
     setEmailError('Field cannot be empty');
   }
@@ -247,7 +248,7 @@ const Checkout = () => {
               </div>
        </div>
       </Container>
-      {formIsValid && <ThankYou />}
+     { backdropIsOpen &&  <ThankYou />}
     </div>
   )
 }

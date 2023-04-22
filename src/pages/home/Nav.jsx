@@ -1,4 +1,5 @@
 import  React,{useState} from 'react'
+import { useLocation } from 'react-router-dom'
 import hamburgerLogo from ".././../../public/images/shared/tablet/icon-hamburger.svg"
 import closeLogo from ".././../../public/images/shared/tablet/icon-close-menu.svg"
 import logo from "../../../public/images/shared/desktop/logo.svg"
@@ -10,6 +11,9 @@ import { useContext } from 'react'
 import { AppContext } from '../../store/AppContext'
 
 const Nav = (props) => {
+    const location = useLocation();
+    console.log(location.pathname); // prints the current route path
+
  const {backdropIsOpen,setBackdropIsOpen} = useContext(AppContext)
 
     const {itemInCardNumber}=useContext(AppContext)
@@ -37,7 +41,8 @@ const Nav = (props) => {
           <img className='relative' onClick={handleCardShopClicked} src={cart} alt='cart icon' />
           {itemInCardNumber!==0 && <span className='absolute top-4  bg-orange h-[20px] text-xs font-bold w-[20px] rounded-full items-center justify-center inline-flex right-[18px] lg:right-[72px]'> {itemInCardNumber} </span>}
       </div>
-      { backdropIsOpen &&  <Overlay setBackdropIsOpen={setBackdropIsOpen} >
+      { backdropIsOpen &&   location.pathname!=="/checkout" && 
+  <Overlay setBackdropIsOpen={setBackdropIsOpen} >
       <div className=" mt-10 "><Cart/></div>
        </Overlay>  }
       </nav>

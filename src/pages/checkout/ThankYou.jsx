@@ -5,6 +5,7 @@ import { AppContext } from '../../store/AppContext'
 const ThankYou = () => {
     const {backdropIsOpen,setBackdropIsOpen} = useContext(AppContext)
 
+    
   return (
     <Overlay setBackdropIsOpen={setBackdropIsOpen} >
         <div className='bg-white text-black'>ThankYou</div>
