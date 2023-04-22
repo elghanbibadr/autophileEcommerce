@@ -93,7 +93,7 @@ const Checkout = () => {
   return (
     <div className='bg-lightGray' >
       <Container  >
-       <Link onClick={handleBackClick} className='text-lightBlack  '>Go Back</Link>
+       <Link onClick={handleBackClick} className='text-lightBlack relative top-2 '>Go Back</Link>
       {/* checkkout info */}
        <div className='lg:grid lg:grid-cols-3 lg:gap-6'>
          <div className='bg-white p-8 rounded-md my-8  lg:col-span-2'>
