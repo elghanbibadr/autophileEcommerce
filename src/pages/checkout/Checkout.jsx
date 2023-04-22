@@ -46,12 +46,10 @@ const Checkout = () => {
       if (isEmoneyPaymentMethod){
         if (emoneypin && emoneyNumber){
           setFormIsValid(true)
-          setAddedItemsToCard([])
           setBackdropIsOpen(true)
         }else setFormIsValid(false)
       }else{
         setFormIsValid(true)
-        setAddedItemsToCard([])
         setBackdropIsOpen(true)
 
       }
@@ -248,7 +246,7 @@ const Checkout = () => {
               </div>
        </div>
       </Container>
-     { backdropIsOpen &&  <ThankYou />}
+     { backdropIsOpen &&  <ThankYou totalPrice={totalPrice} />}
     </div>
   )
 }
