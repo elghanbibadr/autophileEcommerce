@@ -2,7 +2,7 @@ import React,{useState,lazy,Suspense} from 'react'
 import { Home } from './pages/home/Home'
 import { Route,Routes,useLocation } from 'react-router-dom'
 import Nav from './pages/home/Nav'
-import ProductDetails from './componenet/UI/ProductDetails'
+import LoadingSpinner from './componenet/UI/LoadingSpinner'
 import ProductsIntroGridContainer from './componenet/UI/ProductsIntroGridContainer'
 import Callout from './componenet/UI/Callout'
 import Footer from './componenet/UI/Footer'
@@ -12,6 +12,7 @@ const Headphones=lazy(()=>import ('./pages/headphones/Headphones'));
 const Speakers=lazy(()=>import ('./pages/speakers/Speakers'));
 const Earphones=lazy(()=>import ('./pages/earphone/Earphones'));
 const Checkout=lazy(()=>import ('./pages/checkout/Checkout'));
+const ProductDetails=lazy(()=>import ('./componenet/UI/ProductDetails'));
 
 
 const App = () => {
@@ -30,7 +31,7 @@ const App = () => {
             </div>
           }
             </div>
-    <Suspense fallback={<h1 className='text-black text-[6rem]'>loading ...</h1>}>
+    <Suspense fallback={<LoadingSpinner />}>
       <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/headphones" element={<Headphones />}/>
