@@ -127,6 +127,7 @@ li{
     transform: rotate(360deg);
   }
 }
+
 .loading-spinner {
   width: 90px;
   height: 90px;
