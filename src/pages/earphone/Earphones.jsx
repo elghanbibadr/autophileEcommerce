@@ -20,9 +20,7 @@ const earphones = () => {
         return <ProductDesc key={id} id={index} description={description} slug={slug} new={isNewProduct} categoryImage={categoryImage} />
        })}
       <ProductsIntroGridContainer className='flex mt-[10rem]' />
-         <Callout />
      </Container>
-     <Footer />
     </>
   )
 }

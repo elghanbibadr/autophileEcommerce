@@ -9,7 +9,6 @@ const Main = () => {
       <ProductsIntroGridContainer className='flex mt-[10rem]' />
     <Cta/>
     <Article />
-    <Callout />
     </>
   )
 }

@@ -8,6 +8,8 @@ import Speakers from './pages/speakers/Speakers'
 import ProductDetails from './componenet/UI/ProductDetails'
 import ProductsIntroGridContainer from './componenet/UI/ProductsIntroGridContainer'
 import Checkout from './pages/checkout/Checkout'
+import Callout from './componenet/UI/Callout'
+import Footer from './componenet/UI/Footer'
 
 const App = () => {
   const [ProductsIntroGridContainerOpen,setProductIntroGridContainerOpen] = useState(false)
@@ -33,6 +35,9 @@ const App = () => {
     <Route path="/earphones/:slug" element={<ProductDetails />}/>
     <Route path="/checkout" element={<Checkout />}/>
   </Routes>
+  <Callout />
+  <Footer />
+
   </>
   )
 }
