@@ -43,7 +43,7 @@ const Nav = (props) => {
       </div>
       { backdropIsOpen &&   location.pathname!=="/checkout" && 
   <Overlay setBackdropIsOpen={setBackdropIsOpen} >
-      <div className=" mt-10 "><Cart/></div>
+      <Cart/>
        </Overlay>  }
       </nav>
 
