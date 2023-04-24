@@ -24,7 +24,7 @@ const ProductsIntroGridContainer = (props) => {
     },
 ]
   return (
-    <ul className={`${props.className}    bg-white  mt-6  h-[250px]  gap-x-4 lg:gap-x-10' `} >
+    <ul className={`${props.className}    bg-white p-6 mt-6  flex flex-col md:flex-row   gap-x-4 lg:gap-x-10' `} >
     {data.map(({id,name,img})=>{
      return <ProductIntroCard key={id} name={name} img={img} />
     })}  

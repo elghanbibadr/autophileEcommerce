@@ -1,11 +1,12 @@
-import React,{useState,lazy,Suspense} from 'react'
+import React,{useState,lazy,Suspense, useContext} from 'react'
 import { Home } from './pages/home/Home'
 import { Route,Routes,useLocation } from 'react-router-dom'
 import Nav from './pages/home/Nav'
 import ProductsIntroGridContainer from './componenet/UI/ProductsIntroGridContainer'
 import Callout from './componenet/UI/Callout'
 import Footer from './componenet/UI/Footer'
-
+import Overlay from './componenet/UI/Overlay'
+import { AppContext } from './store/AppContext'
 
 const Headphones=lazy(()=>import ('./pages/headphones/Headphones'));
 const Speakers=lazy(()=>import ('./pages/speakers/Speakers'));
@@ -15,19 +16,18 @@ const ProductDetails=lazy(()=>import ('./componenet/UI/ProductDetails'));
 
 
 const App = () => {
-  const [ProductsIntroGridContainerOpen,setProductIntroGridContainerOpen] = useState(false)
+  const {ProductsIntroGridContainerOpen,setProductIntroGridContainerOpen} = useContext(AppContext)
   const location = useLocation();
   const isCheckoutRoute = location.pathname === '/checkout';
 
   return (
-  
   <>
        <div className='bg-paleBlack'>
          <Nav ProductsIntroGridContainerOpen={ProductsIntroGridContainerOpen} setProductIntroGridContainerOpen={setProductIntroGridContainerOpen} />
           {ProductsIntroGridContainerOpen &&  
-            <div className=''>
-              <ProductsIntroGridContainer className=' absolute  inset-x-0 lg:hidden' />
-            </div>
+            // <Overlay  >
+              <ProductsIntroGridContainer className='  inset-x-0 lg:hidden' />
+            // </Overlay>
           }
             </div>
     <Suspense >

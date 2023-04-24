@@ -6,6 +6,8 @@ export const AppContextProvider = ({ children }) => {
   const [addedItemsToCard,setAddedItemsToCard]=useState([]) 
   const [backdropIsOpen,setBackdropIsOpen] = useState(false)
   const [itemQuantity,setItemQuantity]=useState(0)
+  const [ProductsIntroGridContainerOpen,setProductIntroGridContainerOpen] = useState(false)
+
 
   const value = {
    itemInCardNumber,
@@ -15,7 +17,9 @@ export const AppContextProvider = ({ children }) => {
   itemQuantity,
   setItemQuantity,
   backdropIsOpen,
-  setBackdropIsOpen
+  setBackdropIsOpen,
+  ProductsIntroGridContainerOpen,
+  setProductIntroGridContainerOpen
 
   }
 

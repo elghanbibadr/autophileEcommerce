@@ -13,8 +13,10 @@ const ProductIntroCard = (props) => {
     setIsHovered(false);
   }
 
+  const handleShopLinkClicked=()=>setProductIntroGridContainerOpen(true)
+
   return (
-    <Link to={`/${props.name}`}   onMouseOver={handleMouseOver}   onMouseOut={handleMouseOut}  className='bg-lightGray rounded-md relative h-40 flex my-10 justify-center  flex-col items-center w-full'>
+    <Link to={`/${props.name}`} onClick={handleShopLinkClicked}  onMouseOver={handleMouseOver}   onMouseOut={handleMouseOut}  className='bg-lightGray rounded-md relative h-40 flex my-10 justify-center  flex-col items-center w-full'>
         <img className='h-32 absolute  bottom-16 ' src={props.img} />
         <div className='mt-20 text-center  uppercase'>
           <h4 className='text-black  tracking-[0.1rem]  mb-4  font-semibold'>{props.name}</h4>
