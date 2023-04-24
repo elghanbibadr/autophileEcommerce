@@ -18,7 +18,7 @@ const Headphones = () => {
        {headphonesProduct.reverse().map(({id,description,categoryImage,slug,name,new:isNewProduct},index)=>{
         return <ProductDesc key={id} id={index} description={description} slug={slug} name={name} new={isNewProduct} categoryImage={categoryImage} />
        })}
-      <ProductsIntroGridContainer className='flex mt-[8rem] ' />
+      <ProductsIntroGridContainer className='flex mt-[2rem] ' />
      </Container>
     </>
   )
