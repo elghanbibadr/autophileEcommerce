@@ -22,6 +22,7 @@ const Checkout = () => {
   const [emoneyNumber, setEmoneyNumber] = useState('');
   const [userNameError, setUserNameError] = useState('');
   const [emailError, setEmailError] = useState('');
+  const [validEmail,setValidEmail] = useState('true');
   const [phoneNumberError, setPhoneNumberError] = useState('');
   const [formIsValid,setFormIsValid]=useState(false);
   const [formSubmited,setFormSubmited]=useState(false);
@@ -66,6 +67,9 @@ const Checkout = () => {
     } else setUserNameError('')
     if (!email) {
      setEmailError('Field cannot be empty');
+   }else if (!(/^[^\s@]+@[^\s@]+\.[^\s@]+$/).test(email)){
+    setEmailError('wrong format');
+    setValidEmail(false)
    }
      else {
        setEmailError('');
@@ -120,9 +124,9 @@ const Checkout = () => {
               <div  >
                 <div className="flex justify-between">
                   <label >Email Address</label>
-                  {!email && <span className="error-msg text-[red]">{emailError}</span>}
+                  {( (!email || !validEmail) && formSubmited ) && <span className="error-msg text-[red]">{emailError}</span>}
                 </div>
-                <input className={`${(formSubmited && !email) ? "border-[red]":""}`}  value={email} onChange={handleEmailChange} type='email' placeholder='alexei@mail.com' />
+                <input className={`${((!email || !validEmail) && formSubmited ) ? "border-[red]":""}`}  value={email} onChange={handleEmailChange} type='email' placeholder='alexei@mail.com' />
               </div>
               <div  >
                 <div className="flex justify-between">
