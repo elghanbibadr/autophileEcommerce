@@ -109,7 +109,7 @@ const Checkout = () => {
           <h3 className='text-black mb-8 font-bold'>CHECKOUT</h3>
             <h6 className='text-orange text-sm uppercase mb-8  font-semibold'>billing details</h6>
             <form />   
-            <div className="grid grid-cols-2 gap-3">
+            <div className="xs2:grid xs2:grid-cols-2 xs2:gap-3">
               <div  >
                 <div className='flex justify-between'>
                   <label >Name</label>
@@ -134,7 +134,7 @@ const Checkout = () => {
             </div>
             <h6 className='text-orange text-sm uppercase mt-9 mb-5  font-bold'>shipping info</h6>
              
-            <div className="grid grid-cols-2 gap-3">
+            <div className="xs2:grid xs2:grid-cols-2 xs2:gap-3">
               <div className='col-span-2 mb-2 ' >
                 <div className="flex justify-between">
                   <label >Your Adress</label>
@@ -166,9 +166,9 @@ const Checkout = () => {
             </div>
            
               <h6 className='text-orange text-sm uppercase mt-9 mb-5  font-bold'>PAYMENT DETAILS</h6>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="xs2:grid xs2:grid-cols-2 xs2:gap-3">
                 <h5 className='text-paleBlack  font-bold text-xs row-span-2'>Payment Method</h5>
-                <div onClick={handlePaymentMethodeSelected} className='flex cursor-pointer items-center py-4 rounded-lg px-2 border-lightGray border-[1px]'>
+                <div onClick={handlePaymentMethodeSelected} className='flex my-4 xs:my-1 cursor-pointer items-center py-4 rounded-lg px-2 border-lightGray border-[1px]'>
                 <div className='custom-radio'>
                   <span className={`orange-circle ${!isEmoneyPaymentMethod ? 'hidden':"block"} bg-orange`}></span>
                 </div>
@@ -183,7 +183,7 @@ const Checkout = () => {
                 </div>
               </div>
               {/*  */}
-             { isEmoneyPaymentMethod && <div className="grid grid-cols-2 gap-3  mt-8 items-center">
+             { isEmoneyPaymentMethod && <div className="xs2:grid xs2:grid-cols-2 xs2:gap-3  mt-8 items-center">
                 <div >
                   <div className="flex justify-between">
                     <label >e-Money Number</label>
