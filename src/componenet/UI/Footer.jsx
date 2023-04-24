@@ -8,14 +8,14 @@ import LinksList from './LinksList'
 const Footer = () => {
   return (
     <footer className='bg-paleBlack mt-40 py-10 px-4 md:px-10'>
-    <div className='md:flex justify-between items-center'>
+    <div className='flex  flex-col xs2:flex-row justify-between items-center'>
     <img src={logo}  alt="audiophile logo" />
-     <LinksList />
+     <LinksList className='flex-col  flex xs2:flex-row' />
     </div>
     <p className='lg:w-1/2'>
     Audiophile is an all in one stop to fulfill your audio needs. We're a small team of music lovers and sound specialists who are devoted to helping you get the most out of personal audio. Come and visit our demo facility - we’re open 7 days a week.
     </p>
-    <div className='flex justify-between  mt-8'>
+    <div className='flex  justify-between  mt-8'>
         <p>Copyright 2021. All Rights <br/> Reserved</p>
         <ul className='flex  '>
             <li><img src={faceBookLogo} alt="facebook logo" /></li>

@@ -5,28 +5,28 @@ const LinksList = (props) => {
   const { pathname } = location;
 
   return (
-    <ul className={`${props.className} flex justify-between  text-[0.87rem] my-8 font-bold lg:text-md`}>
+    <ul className={`   items-center justify-between  text-[0.87rem] my-8 font-bold lg:text-md ${props.className} `}>
     <NavLink
     exact
      to="/"
      activeClassName={pathname === "/" ? "active" : ""}
 
      >
-        <li className='hover:text-orange transition-colors duration-500'>HOME</li>
+        <li className='hover:text-orange mb-6 xs2:mb-0 transition-colors duration-500'>HOME</li>
     </NavLink>
     <NavLink 
     exact
     to="/headphones"
     activeClassName={pathname === "/headphones" ? "active" : ""}
     >
-        <li className='hover:text-orange transition-colors md:mx-8 duration-500'>HEADPHONES</li>
+        <li className='hover:text-orange  mb-6 xs2:mb-0 transition-colors xs2:mx-4 md:mx-8 duration-500'>HEADPHONES</li>
     </NavLink>
     <NavLink 
     exact
     to="/speakers"
     activeClassName={pathname === "/speakers" ? "active" : ""}
     >
-      <li className='hover:text-orange transition-colors duration-500'>SPEAKERS</li>
+      <li className='hover:text-orange mb-6 xs2:mb-0 transition-colors duration-500'>SPEAKERS</li>
     </NavLink>
     <NavLink
     exact
@@ -34,7 +34,7 @@ const LinksList = (props) => {
      activeClassName={pathname === "/earphones" ? "active" : ""}
 
      >
-      <li className='ml-6 hover:text-orange transition-colors duration-500'>EARPHONES</li>
+      <li className='xs2:ml-6 hover:text-orange mb-6 xs2:mb-0 transition-colors duration-500'>EARPHONES</li>
     </NavLink>
 </ul>
   )

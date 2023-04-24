@@ -12,7 +12,6 @@ import { AppContext } from '../../store/AppContext'
 
 const Nav = (props) => {
     const location = useLocation();
-    console.log(location.pathname); // prints the current route path
 
  const {backdropIsOpen,setBackdropIsOpen} = useContext(AppContext)
 
