@@ -5,14 +5,15 @@ import Btn from '../../componenet/UI/Btn';
 const PurchaseSummary = (props) => {
   const {addedItemsToCard,backdropIsOpen,setBackdropIsOpen}=useContext(AppContext)
 
-  const handleFormSubmited=props.handleFormSubmited
+  const handleFormSubmited=props.handleFormSubmited;
   const total=addedItemsToCard.reduce((sum, item) => {
     return sum +  item.quantity* Number(item.price);
   }, 0);
+  
   const vatPrice=(total *0.01).toFixed(2)
   const totalPrice = (total + total *0.01  + 50 + total*0.001).toFixed(2)
   const shippingCost=(50 +  total*0.001).toFixed(2)
-  
+
   return (
     <div className='bg-white  p-8 rounded-md mt-8 h-fit'>
                 <h3 className='text-black mb-8 font-bold'>SUMMARY</h3>
@@ -49,7 +50,7 @@ const PurchaseSummary = (props) => {
               <p className='text-paleBlack '>GRAND TOTAL</p>
               <h4 className='text-orange font-bold '>${totalPrice}</h4>
             </div>
-            <div onClick={handleFormSubmited}>
+            <div onClick={props.handleFormSubmited}>
                       <Btn  className={`${addedItemsToCard.length===0 ? "  bg-opacity-40 cursor-not-allowed":"bg-opacity-100 "} bg-orange cursor-not-allowed  text-white w-full mt-6`}    text="CONTINUE & PAY"/>
                     </div>
               </div>
