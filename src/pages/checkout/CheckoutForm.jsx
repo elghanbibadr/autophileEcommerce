@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import cashOnDelliveryIcon from "../../../public/images/checkout/icon-cash-on-delivery.svg"
 
-const CheckoutForm = () => {
+const CheckoutForm = (props) => {
   
   const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
@@ -16,13 +16,33 @@ const CheckoutForm = () => {
   const [userNameError, setUserNameError] = useState('');
   const [emailError, setEmailError] = useState('');
   const [phoneNumberError, setPhoneNumberError] = useState('');
- const [formIsValid,setFormIsValid]=useState(false);
+  const [formIsValid,setFormIsValid]=useState(false);
   const [formSubmited,setFormSubmited]=useState(false);
+
   const [isEmoneyPaymentMethod, setIsEmoneyPaymentMethod]=useState(true)
 
 
   const handlePaymentMethodeSelected=()=>setIsEmoneyPaymentMethod(prv => !prv)
 
+  const handleFormSubmited=(e)=>{
+    e.preventDefault();
+    if (addedItemsToCard.length===0)return;
+   setFormSubmited(true)
+    validate();
+    if(userName && email &&  phone && country && city && zipCode && address ) {
+     if (isEmoneyPaymentMethod){
+       if (emoneypin && emoneyNumber){
+         setFormIsValid(true)
+         setBackdropIsOpen(true)
+       }else setFormIsValid(false)
+     }else{
+       setFormIsValid(true)
+       setBackdropIsOpen(true)
+
+     }
+    }
+    
+} 
   const validate = () => {
     if (!userName || !city || !country ) {
       setUserNameError('Field cannot be empty');
@@ -43,7 +63,6 @@ const CheckoutForm = () => {
   }
 
   
-  
   const handleUserNameChange=(e)=>setUserName(e.target.value);
   const handleEmailChange=(e)=>setEmail(e.target.value);
   const handlePhoneChange=(e)=>setPhone(e.target.value);
@@ -55,11 +74,11 @@ const CheckoutForm = () => {
   const handleEmoneyNumberChange=(e)=>setEmoneyNumber(e.target.value);
 
   return (
-     <div className='bg-white p-8 rounded-md my-8  lg:col-span-2'>
+     <div onClick={handleFormSubmited} className='bg-white p-8 rounded-md my-8  lg:col-span-2'>
       <h3 className='text-black mb-8 font-bold'>CHECKOUT</h3>
         <h6 className='text-orange text-sm uppercase mb-8  font-semibold'>billing details</h6>
         <form />   
-        <div className="grid grid-cols-2 gap-3">
+        <div className="xs2:grid xs2:grid-cols-2 xs2:gap-3">
           <div  >
             <div className='flex justify-between'>
               <label >Name</label>
@@ -86,7 +105,7 @@ const CheckoutForm = () => {
         </div>
         <h6 className='text-orange text-sm uppercase mt-9 mb-5  font-bold'>shipping info</h6>
          
-        <div className="grid grid-cols-2 gap-3">
+        <div className="xs2:grid xs2:grid-cols-2 xs2:gap-3">
           <div className='col-span-2 mb-2 ' >
             <div className="flex justify-between">
               <label >Your Adress</label>
@@ -121,9 +140,9 @@ const CheckoutForm = () => {
         </div>
        
           <h6 className='text-orange text-sm uppercase mt-9 mb-5  font-bold'>PAYMENT DETAILS</h6>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="xs2:grid xs2:grid-cols-2 xs2:gap-3">
             <h5 className='text-paleBlack  font-bold text-xs row-span-2'>Payment Method</h5>
-            <div onClick={handlePaymentMethodeSelected} className='flex cursor-pointer items-center py-4 rounded-lg px-2 border-lightGray border-[1px]'>
+            <div onClick={handlePaymentMethodeSelected} className='flex my-6 xs2:my-2 cursor-pointer items-center py-4 rounded-lg px-2 border-lightGray border-[1px]'>
             <div className='custom-radio'>
               <span className={`orange-circle ${!isEmoneyPaymentMethod ? 'hidden':"block"} bg-orange`}></span>
             </div>
@@ -138,7 +157,7 @@ const CheckoutForm = () => {
             </div>
           </div>
           {/*  */}
-         { isEmoneyPaymentMethod && <div className="grid grid-cols-2 gap-3  mt-8 items-center">
+         { isEmoneyPaymentMethod && <div className="xs2:grid xs2:grid-cols-2 xs2:gap-3  mt-8 items-center">
             <div >
               <div className="flex justify-between">
                 <label >e-Money Number</label>
@@ -147,7 +166,7 @@ const CheckoutForm = () => {
               <input className={`${(formSubmited && !emoneyNumber) ? "border-[red]":""}`}  value={emoneyNumber} onChange={handleEmoneyNumberChange} type='number' placeholder='238914892' />
             </div>
             <div>
-              <div className="flex justify-between">
+              <div className="flex  justify-between">
                 <label >e-Money PIN</label>
                 {!emoneypin && <span className="error-msg text-[red]">{phoneNumberError}</span>}
               </div>

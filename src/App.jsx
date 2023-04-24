@@ -1,11 +1,11 @@
-import React,{useState,lazy,Suspense, useContext} from 'react'
+import React,{lazy,Suspense, useContext} from 'react'
 import { Home } from './pages/home/Home'
 import { Route,Routes,useLocation } from 'react-router-dom'
 import Nav from './pages/home/Nav'
 import ProductsIntroGridContainer from './componenet/UI/ProductsIntroGridContainer'
 import Callout from './componenet/UI/Callout'
 import Footer from './componenet/UI/Footer'
-import Overlay from './componenet/UI/Overlay'
+import Container from './componenet/UI/Container'
 import { AppContext } from './store/AppContext'
 
 const Headphones=lazy(()=>import ('./pages/headphones/Headphones'));
@@ -42,7 +42,9 @@ const App = () => {
       <Route path="/checkout" element={<Checkout />}/>
         </Routes>
     </Suspense>
+    <Container>
     {!isCheckoutRoute && <Callout />}
+    </Container>
       {!isCheckoutRoute && <Footer />}
 
   </>

@@ -8,8 +8,7 @@ import CheckoutForm from './CheckoutForm';
 import ThankYou from './ThankYou';
 import PurchaseSummary from './PurchaseSummary';
 const Checkout = () => {
-  const [formIsValid,setFormIsValid]=useState(false);
-  const [formSubmited,setFormSubmited]=useState(false);
+
   const {addedItemsToCard,setAddedItemsToCard,backdropIsOpen,setBackdropIsOpen}=useContext(AppContext)
   const total=addedItemsToCard.reduce((sum, item) => {
     return sum +  item.quantity* Number(item.price);
@@ -19,27 +18,9 @@ const Checkout = () => {
 
   
   
- const handleFormSubmited=(e)=>{
-     e.preventDefault();
-     if (addedItemsToCard.length===0)return;
-    setFormSubmited(true)
-     validate();
-     if(userName && email &&  phone && country && city && zipCode && address ) {
-      if (isEmoneyPaymentMethod){
-        if (emoneypin && emoneyNumber){
-          setFormIsValid(true)
-          setBackdropIsOpen(true)
-        }else setFormIsValid(false)
-      }else{
-        setFormIsValid(true)
-        setBackdropIsOpen(true)
 
-      }
-     }
-     
- }
 
- 
+ const handleFormSubmited=()=>{alert('yo')}
 
 
 
