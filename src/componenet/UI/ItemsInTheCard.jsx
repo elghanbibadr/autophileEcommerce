@@ -16,7 +16,7 @@ const ItemsInTheCard = () => {
   }
   
   return (
-    <div className='px-' >
+    <div  >
         <div className='flex  justify-between items-center'>
         <h4 className='text-black'>Cart ({itemInCardNumber})</h4>
         <p onClick={handleRemoveAllClicked} className='text-paleBlack cursor-pointer underline'>RemoveAll</p> 
@@ -24,7 +24,7 @@ const ItemsInTheCard = () => {
         {addedItemsToCard.map(({cartImage,id,quantity,price,shortName})=>{
         
        return  <div key={id} className='flex  justify-between items-center'>
-          <div className='flex items-center  my-6'>
+          <div className='flex items-center  my-3'>
             <img className='h-[70px] rounded-md mr-3' src={cartImage} />
             <div >
               <h6 className='text-black font-semibold'>{shortName}</h6>
@@ -45,7 +45,7 @@ const ItemsInTheCard = () => {
         </div>
       
         <Link to="/checkout" onClick={handleCheckoutBtnClicked}>
-          <Btn className='bg-orange w-full mt-10 text-white' text="CHECKOUT"/>
+          <Btn className='bg-orange w-full mt-10 text-white hover:bg-orangePale' text="CHECKOUT"/>
         </Link>
 
     </div>
