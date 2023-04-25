@@ -2,9 +2,14 @@ import { createContext, useState, useEffect } from "react";
 export const AppContext = createContext(null);
 
 const itemsFromLocalStorage =JSON.parse(localStorage.getItem("addedItemsToCart") || [])
+
 export const AppContextProvider = ({ children }) => {
-  const [itemInCardNumber, SetItemInCardNumber] =useState(0)
   const [addedItemsToCard,setAddedItemsToCard]=useState(itemsFromLocalStorage) 
+  const numberOfItemsInCart=  addedItemsToCard.reduce((sum, item) => {
+    return sum + item.quantity;
+  }, 0);
+
+  const [itemInCardNumber, SetItemInCardNumber] =useState(numberOfItemsInCart)
   const [backdropIsOpen,setBackdropIsOpen] = useState(false)
   const [itemQuantity,setItemQuantity]=useState(0)
   const [ProductsIntroGridContainerOpen,setProductIntroGridContainerOpen] = useState(false)

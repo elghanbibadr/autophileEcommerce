@@ -3,14 +3,17 @@ import { Link } from 'react-router-dom'
 import Btn from './Btn'
 import { AppContext } from '../../store/AppContext'
 const ItemsInTheCard = () => {
-  const {addedItemsToCard,itemInCardNumber,setBackdropIsOpen,setAddedItemsToCard}=useContext(AppContext)
+  const {addedItemsToCard,itemInCardNumber,setBackdropIsOpen,SetItemInCardNumber, setAddedItemsToCard}=useContext(AppContext)
   const total=addedItemsToCard.reduce((sum, item) => {
     return sum +  item.quantity* Number(item.price);
   }, 0);
   
 
   const handleCheckoutBtnClicked=() => setBackdropIsOpen(false);
-  const handleRemoveAllClicked=()=>{setAddedItemsToCard([])}
+  const handleRemoveAllClicked=()=>{
+    SetItemInCardNumber(0)
+    setAddedItemsToCard([])
+  }
   
   return (
     <div className='px-' >
