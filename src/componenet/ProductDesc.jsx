@@ -19,7 +19,7 @@ const ProductDesc = (props) => {
         {props.description}
         </p>
         <Link to={`${props.slug}`}>
-          <Btn className='bg-orange text-white' text="see product"/>
+          <Btn className='bg-orange text-white  hover:bg-orangePale' text="see product"/>
         </Link>
     </div>
     </div>

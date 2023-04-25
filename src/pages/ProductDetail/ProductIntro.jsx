@@ -13,7 +13,7 @@ const ProductIntro = (props) => {
         <div className='flex items-center'>
             <IncreaseQuantityBox handleItemQuantityChanged={props.handleItemQuantityChanged} itemNumber={1} />
             <div onClick={props.handleProductAddedToCart}>
-                <Btn className='bg-orange mx-4 text-white' text="ADD TO CART" />
+                <Btn className='bg-orange mx-4 text-white hover:bg-orangePale' text="ADD TO CART" />
             </div>
         </div>
     </div>
