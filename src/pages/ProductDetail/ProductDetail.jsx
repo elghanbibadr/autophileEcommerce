@@ -19,7 +19,6 @@ function ProductDetails() {
     const currentVisibleProduct = products.find(p => p.slug === slug);
 
 
-  
 
     useEffect(() => {
         const totalQuantity = addedItemsToCard.reduce((sum, item) => {
@@ -48,7 +47,8 @@ function ProductDetails() {
     }
 
 
-
+  
+  
 
     return (
             <Container >
