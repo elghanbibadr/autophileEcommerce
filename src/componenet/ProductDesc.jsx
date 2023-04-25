@@ -1,20 +1,10 @@
-import React ,{useEffect,useState} from 'react'
 import Btn from './UI/Btn'
 import { Link } from 'react-router-dom';
+import useWindowWidth from "../CustomHooks/UseWindowWidth";
 
 const ProductDesc = (props) => {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const windowWidth=useWindowWidth();
 
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
 
   return (
     <div className='mt-20 gap-x-[8rem] lg:grid lg:grid-cols-2 lg:mb-[4rem] '>
