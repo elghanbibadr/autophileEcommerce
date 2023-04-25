@@ -1,10 +1,12 @@
 import IncreaseQuantityBox from '../../componenet/UI/IncreaseQuantityBox';
 import Btn from '../../componenet/UI/Btn';
-
+import GoBackLink from '../../componenet/UI/GoBackLink';
 const ProductIntro = (props) => {
+  
   return (
-    <div className='md:grid md:grid-cols-2 '>
-    <img className='w-[80%] mx-auto mb-10' src={props.currentVisibleProduct.image.mobile} />
+    <div className=' md:grid md:grid-cols-2 '>
+        <GoBackLink />
+    <img className='w-[80%] mx-auto my-10' src={props.currentVisibleProduct.image.mobile} alt="current product selected image" />
     <div className='self-center'>
         {props.currentVisibleProduct.new && <span className='text-orange tracking-[0.62rem] font-light uppercase'> new product </span>}
         <h3 className='text-black leading-[1.4] font-bold mt-4 mb-2'>{props.currentVisibleProduct.name}</h3>
