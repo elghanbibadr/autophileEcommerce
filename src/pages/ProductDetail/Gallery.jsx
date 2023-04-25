@@ -1,18 +1,7 @@
 import React,{useEffect,useState} from 'react'
 
-const Gallery = ({currentVisibleProduct}) => {
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-    useEffect(() => {
-        const handleResize = () => {
-            setWindowWidth(window.innerWidth);
-        };
-
-        window.addEventListener('resize', handleResize);
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
+const Gallery = ({currentVisibleProduct,windowWidth}) => {
+  
 
   return (
     <div className='mt-36 xs2:grid xs2:grid-cols-2 max-w-[1000px] mx-auto  xs2:gap-6'>
