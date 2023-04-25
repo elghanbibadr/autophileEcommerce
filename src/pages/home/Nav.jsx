@@ -13,11 +13,12 @@ import { AppContext } from '../../store/AppContext'
 const Nav = (props) => {
     const location = useLocation();
 
- const {backdropIsOpen,setBackdropIsOpen} = useContext(AppContext)
+ const {backdropIsOpen,setBackdropIsOpen,cartOpen,setCartOpen} = useContext(AppContext)
 
     const {itemInCardNumber}=useContext(AppContext)
     const handleCardShopClicked=()=>{
         setBackdropIsOpen(true)
+        setCartOpen(true)
     }
 
     const handleMenuHamburgerClicked=()=>{
@@ -40,7 +41,7 @@ const Nav = (props) => {
           <img className='relative' onClick={handleCardShopClicked} src={cart} alt='cart icon' />
           {itemInCardNumber!==0 && <span className='absolute top-4  bg-orange h-[20px] text-xs font-bold w-[20px] rounded-full items-center justify-center inline-flex right-[18px] lg:right-[72px]'> {itemInCardNumber} </span>}
       </div>
-      { backdropIsOpen &&   location.pathname!=="/checkout" && 
+      { backdropIsOpen &&   cartOpen && 
   <Overlay setBackdropIsOpen={setBackdropIsOpen} >
       <Cart/>
        </Overlay>  }

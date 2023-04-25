@@ -11,6 +11,7 @@ export const AppContextProvider = ({ children }) => {
 
   const [itemInCardNumber, SetItemInCardNumber] =useState(numberOfItemsInCart)
   const [backdropIsOpen,setBackdropIsOpen] = useState(false)
+  const [cartOpen,setCartOpen]=useState(false)
   const [itemQuantity,setItemQuantity]=useState(0)
   const [ProductsIntroGridContainerOpen,setProductIntroGridContainerOpen] = useState(false)
 
@@ -18,7 +19,6 @@ export const AppContextProvider = ({ children }) => {
     localStorage.setItem('addedItemsToCart', JSON.stringify(addedItemsToCard))
 },[addedItemsToCard,itemInCardNumber])
 
-console.log(addedItemsToCard)
 
   const value = {
    itemInCardNumber,
@@ -30,7 +30,9 @@ console.log(addedItemsToCard)
   backdropIsOpen,
   setBackdropIsOpen,
   ProductsIntroGridContainerOpen,
-  setProductIntroGridContainerOpen
+  setProductIntroGridContainerOpen,
+  cartOpen,
+  setCartOpen
 
   }
 

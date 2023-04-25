@@ -8,7 +8,7 @@ import Btn from '../../componenet/UI/Btn';
 import ThankYou from './ThankYou';
 const Checkout = () => {
 
-  const {addedItemsToCard,setAddedItemsToCard,backdropIsOpen,setBackdropIsOpen}=useContext(AppContext)
+  const {addedItemsToCard,setAddedItemsToCard,cartOpen,setCartOpen,backdropIsOpen,setBackdropIsOpen}=useContext(AppContext)
 
   
   const [userName, setUserName] = useState('');
@@ -46,6 +46,7 @@ const Checkout = () => {
     e.preventDefault();
     if (addedItemsToCard.length===0)return;
    setFormSubmited(true)
+   setCartOpen(false)
     validate();
     if(userName && email &&  phone && country && city && zipCode && address ) {
      if (isEmoneyPaymentMethod){
@@ -253,7 +254,7 @@ const Checkout = () => {
               </div>
        </div>
       </Container>
-     { backdropIsOpen &&  <ThankYou totalPrice={totalPrice} />}
+     { backdropIsOpen && !cartOpen &&   <ThankYou totalPrice={totalPrice} />}
     </div>
   )
 }

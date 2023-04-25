@@ -3,7 +3,7 @@ import Btn from "../../componenet/UI/Btn"
 import { Link } from 'react-router-dom'
 const Hero = () => {
   return (
-    <div  className=' lg:text-left hero h-screen flex flex-col text-center justify-center  bg-hero-mobile bg-center  bg-no-repeat sm:bg-hero-tablet lg:bg-hero-desktop  '  >
+    <div  className=' lg:text-left hero py-40 flex flex-col text-center justify-center  bg-hero-mobile bg-center  bg-no-repeat sm:bg-hero-tablet lg:bg-hero-desktop  '  >
               <div className='  lg:w-1/2'>
                   <h5 className='text-white opacity-50'>NEW PRODUCT</h5>
                   <h1>XX99 MARK II HEADPHONES</h1>
