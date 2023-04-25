@@ -104,7 +104,7 @@ function ProductDetails() {
           <div className=' lg:grid lg:grid-cols-3 lg:gap-10'>
             {currentVisibleProduct.others.map(({ image, name, slug }) => {
 
-              return <div className='text-center my-10'> <img className='' src={windowWidth < 960 ? image.mobile : image.desktop} alt="other category product image" />
+              return <div className='text-center my-10'> <img className='mx-auto' src={windowWidth < 960 ? image.mobile : image.desktop} alt="other category product image" />
                 <h3 className='text-paleBlack leading-[1.4] font-bold my-8 text-3xl'>{name}</h3>
                 <Link to={`/${slug}`}>
                   <Btn className='bg-orange text-white' text="see product" />
