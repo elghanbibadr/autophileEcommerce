@@ -12,7 +12,7 @@ const Headphones=lazy(()=>import ('./pages/headphones/Headphones'));
 const Speakers=lazy(()=>import ('./pages/speakers/Speakers'));
 const Earphones=lazy(()=>import ('./pages/earphone/Earphones'));
 const Checkout=lazy(()=>import ('./pages/checkout/Checkout'));
-const ProductDetails=lazy(()=>import ('./componenet/UI/ProductDetails'));
+const ProductDetail=lazy(()=>import ('./pages/ProductDetail/ProductDetail'));
 
 
 const App = () => {
@@ -25,20 +25,18 @@ const App = () => {
        <div className='bg-paleBlack'>
          <Nav ProductsIntroGridContainerOpen={ProductsIntroGridContainerOpen} setProductIntroGridContainerOpen={setProductIntroGridContainerOpen} />
           {ProductsIntroGridContainerOpen &&  
-            // <Overlay  >
               <ProductsIntroGridContainer className='  inset-x-0 lg:hidden' />
-            // </Overlay>
           }
             </div>
     <Suspense >
       <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/headphones" element={<Headphones />}/>
-      <Route path="/headphones/:slug" element={<ProductDetails />}/>
+      <Route path="/headphones/:slug" element={<ProductDetail />}/>
        <Route path="/speakers" element={<Speakers />} />
-       <Route path="/speakers/:slug" element={<ProductDetails />}/>
+       <Route path="/speakers/:slug" element={<ProductDetail />}/>
       <Route path="/earphones" element={<Earphones />} />
-      <Route path="/earphones/:slug" element={<ProductDetails />}/>
+      <Route path="/earphones/:slug" element={<ProductDetail />}/>
       <Route path="/checkout" element={<Checkout />}/>
         </Routes>
     </Suspense>
