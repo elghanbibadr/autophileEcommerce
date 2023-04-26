@@ -68,9 +68,6 @@ const Checkout = () => {
     } else setUserNameError('')
     if (!email) {
      setEmailError('Field cannot be empty');
-   }else if (!(/^[^\s@]+@[^\s@]+\.[^\s@]+$/).test(email)){
-    setEmailError('wrong format');
-    setValidEmail(false)
    }
      else {
        setEmailError('');
@@ -125,9 +122,9 @@ const Checkout = () => {
               <div  >
                 <div className="flex justify-between">
                   <label >Email Address</label>
-                  {( (!email || !validEmail) && formSubmited ) && <span className="error-msg text-[red]">{emailError}</span>}
+                  { (!email && formSubmited)  && <span className="error-msg text-[red]">{emailError}</span>}
                 </div>
-                <input className={`${((!email || !validEmail) && formSubmited ) ? "border-[red]":""}`}  value={email} onChange={handleEmailChange} type='email' placeholder='alexei@mail.com' />
+                <input className={`${((!email && formSubmited)  ) ? "border-[red]":""}`}  value={email} onChange={handleEmailChange} type='email' placeholder='alexei@mail.com' />
               </div>
               <div  >
                 <div className="flex justify-between">
