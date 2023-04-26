@@ -13,6 +13,7 @@ export const AppContextProvider = ({ children }) => {
   const [backdropIsOpen,setBackdropIsOpen] = useState(false)
   const [cartOpen,setCartOpen]=useState(false)
   const [itemQuantity,setItemQuantity]=useState(0)
+  const [newItemAddedToCart,setNewItemAddedToCart] = useState(false);
   const [ProductsIntroGridContainerOpen,setProductIntroGridContainerOpen] = useState(false)
 
   useEffect(()=>{
@@ -32,7 +33,9 @@ export const AppContextProvider = ({ children }) => {
   ProductsIntroGridContainerOpen,
   setProductIntroGridContainerOpen,
   cartOpen,
-  setCartOpen
+  setCartOpen,
+  newItemAddedToCart,
+  setNewItemAddedToCart
 
   }
 
