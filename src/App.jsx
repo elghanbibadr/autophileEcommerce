@@ -7,7 +7,6 @@ import Callout from './componenet/UI/Callout'
 import Footer from './componenet/UI/Footer'
 import Container from './componenet/UI/Container'
 import { AppContext } from './store/AppContext'
-
 const Headphones=lazy(()=>import ('./pages/headphones/Headphones'));
 const Speakers=lazy(()=>import ('./pages/speakers/Speakers'));
 const Earphones=lazy(()=>import ('./pages/earphone/Earphones'));
@@ -19,7 +18,6 @@ const App = () => {
   const {ProductsIntroGridContainerOpen,setProductIntroGridContainerOpen} = useContext(AppContext)
   const location = useLocation();
   const isCheckoutRoute = location.pathname === '/checkout';
-
   return (
   <>
        <div className='bg-paleBlack'>
@@ -41,9 +39,9 @@ const App = () => {
         </Routes>
     </Suspense>
     <Container>
-    {!isCheckoutRoute && <Callout />}
+    {!isCheckoutRoute && !isCheckoutRoute &&   <Callout />}
     </Container>
-      {!isCheckoutRoute && <Footer />}
+      {!isCheckoutRoute && !isCheckoutRoute  && <Footer />}
 
   </>
   )

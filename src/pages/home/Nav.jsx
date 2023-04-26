@@ -1,5 +1,4 @@
-import  React,{useState} from 'react'
-import { useLocation } from 'react-router-dom'
+import { Link } from "react-router-dom"
 import hamburgerLogo from ".././../../public/images/shared/tablet/icon-hamburger.svg"
 import closeLogo from ".././../../public/images/shared/tablet/icon-close-menu.svg"
 import logo from "../../../public/images/shared/desktop/logo.svg"
@@ -11,7 +10,6 @@ import { useContext } from 'react'
 import { AppContext } from '../../store/AppContext'
 
 const Nav = (props) => {
-    const location = useLocation();
 
  const {backdropIsOpen,setBackdropIsOpen,cartOpen,setCartOpen} = useContext(AppContext)
 
@@ -34,7 +32,7 @@ const Nav = (props) => {
       <div className='flex-row'>
          { !props.ProductsIntroGridContainerOpen &&  <img onClick={handleMenuHamburgerClicked} className='mr-8 lg:hidden' src={hamburgerLogo} alt='hamburger logo icon' /> }
         { props.ProductsIntroGridContainerOpen &&  <img onClick={handleCloseIconClicked} className='mr-8 lg:hidden' src={closeLogo} alt='close logo icon' />  }
-           <img src={logo}  alt='audiophile logo'  />
+           <Link to="/"><img src={logo}  alt='audiophile logo'  /></Link>
       </div>
            <LinksList className="hidden lg:flex" />
       <div>
