@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import Btn from './Btn'
 import { AppContext } from '../../store/AppContext'
 const ItemsInTheCard = () => {
-  const {addedItemsToCard,itemInCardNumber,setBackdropIsOpen,SetItemInCardNumber, setAddedItemsToCard}=useContext(AppContext)
+  const {addedItemsToCard,itemInCardNumber,setBackdropIsOpen,SetItemInCardNumber, setAddedItemsToCard,setNewItemAddedToCartOrCartEmpty}=useContext(AppContext)
   const total=addedItemsToCard.reduce((sum, item) => {
     return sum +  item.quantity* Number(item.price);
   }, 0);
@@ -16,6 +16,8 @@ const ItemsInTheCard = () => {
   }
   
   return (
+
+    <>
     <div  >
         <div className='flex  justify-between items-center'>
         <h4 className='text-black'>Cart ({itemInCardNumber})</h4>
@@ -49,6 +51,7 @@ const ItemsInTheCard = () => {
         </Link>
 
     </div>
+    </>
   )
 }
 

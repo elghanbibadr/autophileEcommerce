@@ -5,6 +5,7 @@ const itemsFromLocalStorage =JSON.parse(localStorage.getItem("addedItemsToCart")
 
 export const AppContextProvider = ({ children }) => {
   const [addedItemsToCard,setAddedItemsToCard]=useState(itemsFromLocalStorage) 
+  console.log(addedItemsToCard)
   const numberOfItemsInCart=  addedItemsToCard.reduce((sum, item) => {
     return sum + item.quantity;
   }, 0);
@@ -13,7 +14,7 @@ export const AppContextProvider = ({ children }) => {
   const [backdropIsOpen,setBackdropIsOpen] = useState(false)
   const [cartOpen,setCartOpen]=useState(false)
   const [itemQuantity,setItemQuantity]=useState(0)
-  const [newItemAddedToCart,setNewItemAddedToCart] = useState(false);
+  const [newItemAddedOrCartEmpty,setNewItemAddedToCartOrCartEmpty] = useState(false);
   const [ProductsIntroGridContainerOpen,setProductIntroGridContainerOpen] = useState(false)
 
   useEffect(()=>{
@@ -34,8 +35,9 @@ export const AppContextProvider = ({ children }) => {
   setProductIntroGridContainerOpen,
   cartOpen,
   setCartOpen,
-  newItemAddedToCart,
-  setNewItemAddedToCart
+  newItemAddedOrCartEmpty,
+  setNewItemAddedToCartOrCartEmpty,
+
 
   }
 

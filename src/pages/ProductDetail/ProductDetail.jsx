@@ -10,12 +10,12 @@ import Features from './Features';
 import InTheBoxItems from './InTheBoxItems';
 import Gallery from './Gallery';
 import OtherProducts from './OtherProducts';
-import AddedItemToCartMessage from '../../componenet/UI/AddedItemToCartMessage';
+import AddedItemOrEmptyCartMessage from '../../componenet/UI/AddedItemOrEmptyCartMessage';
 
 function ProductDetails() {
     const { slug } = useParams();
     const windowWidth=useWindowWidth();
-    const { SetItemInCardNumber, setAddedItemsToCard, addedItemsToCard, newItemAddedToCart ,setNewItemAddedToCart  } = useContext(AppContext)
+    const { SetItemInCardNumber, setAddedItemsToCard, addedItemsToCard, newItemAddedOrCartEmpty,  setNewItemAddedToCartOrCartEmpty    } = useContext(AppContext)
     const [quantity, setQuantity] = useState(undefined)
     const currentVisibleProduct = products.find(p => p.slug === slug);
    const ItemName=currentVisibleProduct.name;
@@ -33,7 +33,7 @@ function ProductDetails() {
     const handleItemQuantityChanged = (value) => setQuantity(value);
 
     const handleProductAddedToCart = () => {
-     setNewItemAddedToCart(true)
+        setNewItemAddedToCartOrCartEmpty(true)
         if (addedItemsToCard.some(product => product.id == currentVisibleProduct.id)) {
             let index = addedItemsToCard.findIndex(obj => obj.id === currentVisibleProduct.id);
             addedItemsToCard[index].quantity = quantity;
@@ -53,7 +53,7 @@ function ProductDetails() {
 
     return (
             <Container >
-                {newItemAddedToCart && <AddedItemToCartMessage ItemName={ItemName} />}
+                {newItemAddedOrCartEmpty  &&  <AddedItemOrEmptyCartMessage message={`${ItemName} was added to cart`} />}
                 <ProductIntro currentVisibleProduct={currentVisibleProduct} handleProductAddedToCart={handleProductAddedToCart} handleItemQuantityChanged={handleItemQuantityChanged} />
                 <div className='md:grid md:grid-cols-2 mt-20 max-w-[1000px] mx-auto '>
                     <Features currentVisibleProduct={currentVisibleProduct} />
