@@ -19,14 +19,14 @@ module.exports = {
       "border-1":"1px"
     },
     backgroundImage: {
-      'hero-mobile': "url('./public/images/home/mobile/image-hero.jpg')",
-      'hero-tablet': "url('./images/home/tablet/image-hero.jpg')",
+      'hero-mobile': "url('/public/images/home/mobile/image-hero.jpg')",
+      'hero-tablet': "url('/public/images/home/tablet/image-hero.jpg')",
       'hero-desktop': "url('/public/images/home/desktop/image-hero.jpg')",
       "ctaSpeaker-mobile":"url('../../../public/home/mobile/image-speaker-zx9.png')",
       "circlePattern":"url('../../../public/home/desktop/pattern-circles.svg')",
-      "zx7Speaker-mobile":"url('../../../public/images/home/mobile/image-speaker-zx7.jpg')",
-      "zx7Speaker-tablet":"url('../../../public/images/home/tablet/image-speaker-zx7.jpg')",
-      "zx7Speaker-desktop":"url('../../../public/images/home/desktop/image-speaker-zx7.jpg')"
+      "zx7Speaker-mobile":"url('/public/images/home/mobile/image-speaker-zx7.jpg')",
+      "zx7Speaker-tablet":"url('/public/images/home/tablet/image-speaker-zx7.jpg')",
+      "zx7Speaker-desktop":"url(/public/images/home/desktop/image-speaker-zx7.jpg')"
     },
     screens: {
        "xs":"380px",
