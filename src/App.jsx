@@ -21,7 +21,7 @@ const App = () => {
   return (
   <>
        <div className='bg-paleBlack'>
-         <Nav ProductsIntroGridContainerOpen={ProductsIntroGridContainerOpen} setProductIntroGridContainerOpen={setProductIntroGridContainerOpen} />
+         <Nav  />
           {ProductsIntroGridContainerOpen &&  
               <ProductsIntroGridContainer className='  inset-x-0 lg:hidden' />
           }

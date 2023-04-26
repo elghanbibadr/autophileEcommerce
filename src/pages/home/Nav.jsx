@@ -11,7 +11,7 @@ import { AppContext } from '../../store/AppContext'
 
 const Nav = (props) => {
 
- const {backdropIsOpen,setBackdropIsOpen,cartOpen,setCartOpen} = useContext(AppContext)
+ const {backdropIsOpen,setBackdropIsOpen,cartOpen,setCartOpen,ProductsIntroGridContainerOpen, setProductIntroGridContainerOpen} = useContext(AppContext)
 
     const {itemInCardNumber}=useContext(AppContext)
     const handleCardShopClicked=()=>{
@@ -20,18 +20,18 @@ const Nav = (props) => {
     }
 
     const handleMenuHamburgerClicked=()=>{
-    props.setProductIntroGridContainerOpen(true)
+    setProductIntroGridContainerOpen(true)
     
     }
 
   const handleCloseIconClicked=()=>{
-   props.setProductIntroGridContainerOpen(false)
+   setProductIntroGridContainerOpen(false)
   }
   return (
       <nav className='flex-row-between px-6  max-w-[1440px] lg:mx-auto lg:px-20 relative  h-20 py-2  '>
       <div className='flex-row'>
-         { !props.ProductsIntroGridContainerOpen &&  <img onClick={handleMenuHamburgerClicked} className='mr-8 lg:hidden' src={hamburgerLogo} alt='hamburger logo icon' /> }
-        { props.ProductsIntroGridContainerOpen &&  <img onClick={handleCloseIconClicked} className='mr-8 lg:hidden' src={closeLogo} alt='close logo icon' />  }
+         { !ProductsIntroGridContainerOpen &&  <img onClick={handleMenuHamburgerClicked} className='mr-8 lg:hidden' src={hamburgerLogo} alt='hamburger logo icon' /> }
+        { ProductsIntroGridContainerOpen &&  <img onClick={handleCloseIconClicked} className='mr-8 lg:hidden' src={closeLogo} alt='close logo icon' />  }
            <Link to="/"><img src={logo}  alt='audiophile logo'  /></Link>
       </div>
            <LinksList className="hidden lg:flex" />
