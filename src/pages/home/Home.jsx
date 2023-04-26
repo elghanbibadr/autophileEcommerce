@@ -14,7 +14,7 @@ export const Home = () => {
          </header>
          <Container>
             <main >
-               <Main />
+               {/* <Main /> */}
             </main>
          </Container>
       </>

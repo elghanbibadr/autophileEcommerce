@@ -59,7 +59,7 @@ function ProductDetails() {
                 </div>
                 <Gallery currentVisibleProduct={currentVisibleProduct} windowWidth={windowWidth} />
                 <OtherProducts currentVisibleProduct={currentVisibleProduct} slug={slug} windowWidth={windowWidth} />
-                <ProductsIntroGridContainer className='flex mt-[8rem] ' />
+                <ProductsIntroGridContainer className='flex mt-[2rem] ' />
             </Container>
     );
 }

@@ -29,7 +29,7 @@ module.exports = {
       "zx7Speaker-desktop":"url('../../../public/images/home/desktop/image-speaker-zx7.jpg')"
     },
     screens: {
-       "xs":"360px",
+       "xs":"380px",
        "xs2":"550px",
       'sm': '640px',
       'md': '768px', // Add your custom media query rule here

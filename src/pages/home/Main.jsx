@@ -5,7 +5,7 @@ import { Article } from './Article'
 const Main = () => {
   return (
     <>
-      <ProductsIntroGridContainer className='flex mt-[8rem]' />
+      <ProductsIntroGridContainer className='flex mt-[2rem]' />
       <Cta />
       <Article />
     </>

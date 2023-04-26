@@ -26,7 +26,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 @layer components {
     h1 {
-      @apply text-white font-semibold text-5xl leading-[1.1] tracking-wide  md:text-5xl lg:text-6xl  ;
+      @apply text-white font-semibold text-4xl leading-[1.1] tracking-wide  md:text-5xl lg:text-6xl  ;
     }
     h2 {
       @apply text-white font-semibold text-3xl leading-[1.1] tracking-wide  md:text-4xl lg:text-5xl  ;
@@ -40,7 +40,7 @@ input[type=number]::-webkit-outer-spin-button {
     }
   
     p{
-      @apply text-white font-light text-[0.9rem] opacity-50 lg:text-[1rem]
+      @apply text-white font-light tracking-wider text-[0.94rem] opacity-50 lg:text-[1rem]
     }
 
     .flex-row-between{
@@ -66,12 +66,6 @@ input[type=number]::-webkit-outer-spin-button {
     cursor: pointer;
   }
 
-
-   .hero{
-   background-size: cover;
-   background-position: center;
-   
-  } 
 
 
 li{
