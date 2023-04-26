@@ -77,12 +77,7 @@ li{
    background-position:center;
   }
 
-  .articleImg{
-     background-position:right !important;
-     background-size: cover;
-         
-  }
-
+ 
   .custom-radio{
     height: 20px;
     width: 20px;
