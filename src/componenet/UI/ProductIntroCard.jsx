@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import arrowRight from "../../../public/images/shared/desktop/icon-arrow-right.svg"
+import { AppContext } from '../../store/AppContext';
 
 const ProductIntroCard = (props) => {
-  
+  const {setProductIntroGridContainerOpen}=useContext(AppContext)
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseOver = () => setIsHovered(true);
